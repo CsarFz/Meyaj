@@ -12,6 +12,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="0" />
+
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
@@ -19,21 +24,53 @@
             android:layout_weight="0"
             android:src="@drawable/user" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="0" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
-                android:layout_height="261dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/str_cuenta"
+                android:text="@string/str_iniciaSesion"
                 android:textAlignment="center"
                 android:textColor="#757575" />
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/str_correoElectronico"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/str_contrasena"
+                android:inputType="textPassword" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -52,7 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="¿Ya tienes una cuenta?"
+                    android:text="@string/str_noTienesCuenta"
                     android:textAlignment="center"
                     android:textColor="#757575" />
 
@@ -70,7 +107,7 @@
                     android:layout_height="24dp"
                     android:background="@android:color/transparent"
                     android:backgroundTint="@android:color/transparent"
-                    android:text="Registrarse"
+                    android:text="@string/str_registrarse"
                     android:textColor="@color/colorAccent"
                     android:textSize="14sp" />
             </LinearLayout>
