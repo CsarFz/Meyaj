@@ -33,15 +33,15 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:gravity="center"
-                android:inputType="textPersonName"
-                android:text="@string/strSearch" />
+                android:hint="@string/str_queServicioBuscabas"
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/button10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="Search" />
+                android:text="@string/str_buscar" />
         </LinearLayout>
 
         <LinearLayout

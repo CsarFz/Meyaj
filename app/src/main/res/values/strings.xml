@@ -10,5 +10,17 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="str_cuenta">Crea tu cuenta personal</string>
-    <string name="strSearch">¿Qué servicio necesitas?</string>
+    <string name="strSearch">Qué servicio necesitas?</string>
+    <string name="str_queServicioBuscabas">¿Qué servicio buscabas?</string>
+    <string name="str_buscar">BUSCAR</string>
+    <string name="str_registrarse">REGISTRARSE</string>
+    <string name="str_noTienesCuenta">¿No tienes una cuenta?</string>
+    <string name="str_iniciaSesion">Iniciar Sesión</string>
+    <string name="str_correoElectronico">Correo electrónico</string>
+    <string name="str_contrasena">Contraseña</string>
+    <string name="strCerca">Cerca de mí</string>
+    <string name="str_nombre">Nombre</string>
+    <string name="str_ingresar">INGRESAR</string>
+    <string name="str_fechaNacimiento">Fecha de nacimiento</string>
+    <string name="str_cancelar">CANCELAR</string>
 </resources>
