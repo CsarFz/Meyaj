@@ -18,4 +18,5 @@
     <string name="str_iniciaSesion">Iniciar Sesión</string>
     <string name="str_correoElectronico">Correo electrónico:</string>
     <string name="str_contrasena">Contraseña:</string>
+    <string name="strCerca">Cerca de mí</string>
 </resources>
