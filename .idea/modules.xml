@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Meyaj.iml" filepath="$PROJECT_DIR$/Meyaj.iml" />
       <module fileurl="file://C:\Users\isain\Desktop\ISC\Octavo Semestre\Moviles\Proyecto\Meyaj22222\Meyaj.iml" filepath="C:\Users\isain\Desktop\ISC\Octavo Semestre\Moviles\Proyecto\Meyaj22222\Meyaj.iml" />
       <module fileurl="file://$PROJECT_DIR$/Meyaj2.iml" filepath="$PROJECT_DIR$/Meyaj2.iml" />
       <module fileurl="file://C:\Users\rodri\Documents\AndroidStudioProjects\Meyaj2\Meyaj22222.iml" filepath="C:\Users\rodri\Documents\AndroidStudioProjects\Meyaj2\Meyaj22222.iml" />
