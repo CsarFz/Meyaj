@@ -18,10 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistroActiv">
-        </activity>
-        <activity android:name=".BuscarServicioActiv">
-        </activity>
+        <activity android:name=".RegistroActiv"></activity>
+        <activity android:name=".BuscarServicioActiv"></activity>
+        <activity android:name=".ConfigurarActiv"></activity>
     </application>
 
 </manifest>

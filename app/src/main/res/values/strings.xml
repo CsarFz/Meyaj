@@ -23,4 +23,7 @@
     <string name="str_ingresar">INGRESAR</string>
     <string name="str_fechaNacimiento">Fecha de nacimiento</string>
     <string name="str_cancelar">CANCELAR</string>
+    <string name="str_nombre_usuario">Mario García Lara</string>
+    <string name="str_numero_celular">+52 1079 5739</string>
+    <string name="str_correo_usuario">mario.garcia@gmail.com</string>
 </resources>

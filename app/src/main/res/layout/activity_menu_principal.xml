@@ -9,7 +9,7 @@
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"
-        android:layout_width="384dp"
+        android:layout_width="422dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:background="#6eafc2"
