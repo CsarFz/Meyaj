@@ -15,6 +15,7 @@ import android.widget.Button;
 public class PerfilFrag extends Fragment
 {
     Button btnRegistro;
+    Button btnConfigurar;
 
     public PerfilFrag() {
         // Required empty public constructor
@@ -33,6 +34,16 @@ public class PerfilFrag extends Fragment
             public void onClick(View v) {
                 Intent intRegistro = new Intent(getActivity(), RegistroActiv.class);
                 startActivity(intRegistro);
+            }
+        });
+
+        // LISTENER DE BOTON CONFIGURAR
+        btnConfigurar = myView.findViewById(R.id.btnConfig);
+        btnConfigurar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intConfigurar = new Intent(getActivity(), ConfigurarActiv.class);
+                startActivity(intConfigurar);
             }
         });
 
