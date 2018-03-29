@@ -3,51 +3,39 @@ package mx.itesm.cagm.meyaj;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.FrameLayout;
 
 public class MenuPrincipalActiv extends AppCompatActivity {
 
-    private boolean estaEnBuscar; // Para saber que fragmento mostrar
-    private boolean estaEnAgenda;
-    private boolean estaEnPerfil;
+    private BottomNavigationView mainNav;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            Fragment fragment = null;
+
             switch (item.getItemId()) {
                 case R.id.navBuscar:
-                    if (!estaEnBuscar) {   // Si no está mostrando el fragmento, lo muestra
-                        BuscarFrag fragCaptura = new BuscarFrag();
-                        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                        ft.replace(R.id.frContenedor, fragCaptura);
-                        ft.commit();
-                        estaEnBuscar = true;
-                    }
-                    return true;
+                    fragment = new BuscarFrag();
+                    break;
+
                 case R.id.navAgenda:
-                    if (estaEnBuscar) {   // Si no está mostrando el fragmento, lo muestra
-                        AgendaFrag fragCaptura = new AgendaFrag();
-                        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                        ft.replace(R.id.frContenedor, fragCaptura);
-                        ft.commit();
-                        estaEnBuscar = false;
-                    }
-                    return true;
+                    fragment = new AgendaFrag();
+                    break;
+
                 case R.id.navPerfil:
-                    if (estaEnBuscar) {   // Si no está mostrando el fragmento, lo muestra
-                        PerfilFrag fragCaptura = new PerfilFrag();
-                        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                        ft.replace(R.id.frContenedor, fragCaptura);
-                        ft.commit();
-                        estaEnBuscar = false;
-                    }
-                    return true;
+                    fragment = new PerfilFrag();
+                    break;
             }
-            return false;
+            return loadFragment(fragment);
         }
     };
 
@@ -59,11 +47,58 @@ public class MenuPrincipalActiv extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        // Fragmento inicial (Buscar servicios)
-        BuscarFrag fragBuscar = new BuscarFrag();
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frContenedor, fragBuscar);
-        ft.commit();
-        estaEnBuscar = true;
+        mainNav = findViewById(R.id.navigation);
+
+        loadFragment(new BuscarFrag());
+
+        Log.i("CicloVida", "OnCreate");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("CicloVida","onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("CicloVida","onResume");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i("CicloVida","onRestart");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("CicloVida","onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("CicloVida","onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("CicloVida","onDestroy");
+    }
+
+    private boolean loadFragment(Fragment fragment) {
+        if(fragment != null) {
+
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.frContenedor, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
     }
 }
