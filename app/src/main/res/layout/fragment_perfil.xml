@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     tools:context="mx.itesm.cagm.meyaj.PerfilFrag">
 
     <!-- TODO: Update blank fragment layout -->
@@ -77,10 +78,10 @@
 
             <Button
                 android:id="@+id/button3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/button_style"
                 android:layout_weight="1"
-                android:text="@string/str_ingresar" />
+                android:text="@string/str_ingresar"
+                android:textColor="@color/colorAccent" />
 
         </LinearLayout>
 
@@ -110,6 +111,7 @@
 
             <Button
                 android:id="@+id/btnRegistrar"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
