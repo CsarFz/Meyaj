@@ -26,4 +26,12 @@
     <string name="str_nombre_usuario">Mario García Lara</string>
     <string name="str_numero_celular">+52 1079 5739</string>
     <string name="str_correo_usuario">mario.garcia@gmail.com</string>
+    <string name="strNuevoUsuario">Registrando usuario nuevo</string>
+    <string name="strNombre">Nombre:</string>
+    <string name="strEdad">Edad:</string>
+    <string name="strCorreo">Correo electronico:</string>
+    <string name="strOcupacion" >Ocupacion:</string>
+    <string name="strPassword">Password</string>
+    <string name="strRegistrar">Registrar</string>
+    <string name="strUsuario">Usuario:</string>
 </resources>
