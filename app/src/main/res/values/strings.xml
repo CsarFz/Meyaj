@@ -37,11 +37,14 @@
     
     <string-array name="my_services">
         <item>Taxi</item>
+        <item>Estilista</item>
+        <item>Cerrajero</item>
         <item>Plomero</item>
         <item>Mecánico</item>
         <item>Carpintero</item>
         <item>Técnico</item>
         <item>Electricista</item>
         <item>Albañil</item>
+        <item>Software</item>
     </string-array>
 </resources>
