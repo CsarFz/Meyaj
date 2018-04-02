@@ -34,4 +34,14 @@
     <string name="strPassword">Password</string>
     <string name="strRegistrar">Registrar</string>
     <string name="strUsuario">Usuario:</string>
+    
+    <string-array name="my_services">
+        <item>Taxi</item>
+        <item>Plomero</item>
+        <item>Mecánico</item>
+        <item>Carpintero</item>
+        <item>Técnico</item>
+        <item>Electricista</item>
+        <item>Albañil</item>
+    </string-array>
 </resources>
