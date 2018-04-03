@@ -30,11 +30,11 @@
     <string name="strNombre">Nombre:</string>
     <string name="strEdad">Edad:</string>
     <string name="strCorreo">Correo electronico:</string>
-    <string name="strOcupacion" >Ocupacion:</string>
+    <string name="strOcupacion">Ocupacion:</string>
     <string name="strPassword">Password</string>
     <string name="strRegistrar">Registrar</string>
     <string name="strUsuario">Usuario:</string>
-    
+
     <string-array name="my_services">
         <item>Taxi</item>
         <item>Estilista</item>

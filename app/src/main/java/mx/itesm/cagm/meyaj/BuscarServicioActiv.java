@@ -1,16 +1,22 @@
 package mx.itesm.cagm.meyaj;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
+import javax.xml.transform.Result;
 
 public class BuscarServicioActiv extends AppCompatActivity {
 
@@ -33,6 +39,17 @@ public class BuscarServicioActiv extends AppCompatActivity {
                 arrayService
         );
 
+        //Seleccion de opcion para pasar a la otra actividad
+        searchService.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(BuscarServicioActiv.this, ResultadosActiv.class);
+                intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                startActivity(intent);
+            }
+        });
+
+
         searchService.setAdapter(adapter);
     }
 
@@ -44,6 +61,8 @@ public class BuscarServicioActiv extends AppCompatActivity {
         MenuItem item = menu.findItem(R.id.search_service);
 
         SearchView searchView = (SearchView)item.getActionView();
+
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
