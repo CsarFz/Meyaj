@@ -59,29 +59,33 @@ public class BuscarFrag extends Fragment
         cvCarpintero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
-                startActivity(intBuscador);
+                Intent intent = new Intent(getActivity(), ResultadosActiv.class);
+                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                startActivity(intent);
             }
         });
         cvElectricista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
-                startActivity(intBuscador);
+                Intent intent = new Intent(getActivity(), ResultadosActiv.class);
+                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                startActivity(intent);
             }
         });
         cvPlomero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
-                startActivity(intBuscador);
+                Intent intent = new Intent(getActivity(), ResultadosActiv.class);
+                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                startActivity(intent);
             }
         });
         cvAlbanil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
-                startActivity(intBuscador);
+                Intent intent = new Intent(getActivity(), ResultadosActiv.class);
+                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                startActivity(intent);
             }
         });
         cvBuscar.setOnClickListener(new View.OnClickListener() {
@@ -94,29 +98,33 @@ public class BuscarFrag extends Fragment
         cvTecnico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
-                startActivity(intBuscador);
+                Intent intent = new Intent(getActivity(), ResultadosActiv.class);
+                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                startActivity(intent);
             }
         });
         cvTaxi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
-                startActivity(intBuscador);
+                Intent intent = new Intent(getActivity(), ResultadosActiv.class);
+                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                startActivity(intent);
             }
         });
         cvCerrajero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
-                startActivity(intBuscador);
+                Intent intent = new Intent(getActivity(), ResultadosActiv.class);
+                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                startActivity(intent);
             }
         });
         cvMecanico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
-                startActivity(intBuscador);
+                Intent intent = new Intent(getActivity(), ResultadosActiv.class);
+                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                startActivity(intent);
             }
         });
 
