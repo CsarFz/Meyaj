@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MenuPrincipalActiv"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity android:name=".RegistroActiv" />
         <activity android:name=".BuscarServicioActiv" />
         <activity android:name=".ConfigurarActiv" />
@@ -24,7 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResultadosActiv"></activity>
+        <activity android:name=".ResultadosActiv" />
+        <activity android:name=".DetalleProfesionistaActiv"></activity>
     </application>
 
 </manifest>

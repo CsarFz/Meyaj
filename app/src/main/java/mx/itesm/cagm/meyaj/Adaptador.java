@@ -53,10 +53,10 @@ public class Adaptador extends BaseAdapter{
         RatingBar calificacion = vista.findViewById(R.id.ratingBar);
         nombre.setText(datos[i][0]);
         profesion.setText(datos[i][1]);
-        distancia.setText(datos[i][2]+"km");
+        distancia.setText(datos[i][2]+" KM");
         imagen.setImageResource(datosImg[i]);
         calificacion.setProgress(Integer.valueOf(datos[i][3]));
-        votos.setText(datos[i][4]);
+        votos.setText("("+datos[i][4]+")");
         imagen.setTag(i);
 
         /*

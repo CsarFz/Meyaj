@@ -11,11 +11,11 @@ public class ResultadosActiv extends AppCompatActivity {
     ListView lista;
 
     String[][] datosProfesionista = {
-            {"Nombre","Profesion", "Distancia", "10", "Votos"},
-            {"Nombre","Profesion", "Distancia", "10", "Votos"},
-            {"Nombre","Profesion", "Distancia", "10", "Votos"},
-            {"Nombre","Profesion", "Distancia", "10", "Votos"},
-            {"Nombre","Profesion", "Distancia", "10", "Votos"},
+            {"Nombre","Profesion", "11.6", "8", "45"},
+            {"Nombre","Profesion", "12.5", "8", "35"},
+            {"Nombre","Profesion", "20.9", "6", "19"},
+            {"Nombre","Profesion", "30.8", "9", "101"},
+            {"Nombre","Profesion", "8.9", "2", "50"},
 
     };
 
