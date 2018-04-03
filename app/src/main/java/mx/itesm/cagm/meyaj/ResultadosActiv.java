@@ -19,7 +19,7 @@ public class ResultadosActiv extends AppCompatActivity {
 
     };
 
-    int[] imgProfesionistas = {};
+    int[] imgProfesionistas = {R.drawable.carpintero,R.drawable.electricista,R.drawable.plomero,R.drawable.mecanico,R.drawable.taxi};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,5 +27,7 @@ public class ResultadosActiv extends AppCompatActivity {
         setContentView(R.layout.activity_resultados);
 
         lista = (ListView) findViewById(R.id.lvProfesionistas);
+
+        lista.setAdapter(new Adaptador(this,datosProfesionista,imgProfesionistas));
     }
 }
