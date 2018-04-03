@@ -110,14 +110,18 @@
                 android:layout_weight="1"
                 android:text="@string/str_cancelar"
                 tools:layout_editor_absoluteX="64dp"
-                tools:layout_editor_absoluteY="463dp" />
+                tools:layout_editor_absoluteY="463dp"
+                style="@style/button_style"
+                android:textColor="@color/colorAccent"/>
 
             <Button
                 android:id="@+id/btnEnviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/strRegistrar" />
+                android:text="@string/strRegistrar"
+                android:textColor="@color/colorAccent"
+                style="@style/button_style"/>
         </LinearLayout>
 
     </LinearLayout>
