@@ -60,13 +60,13 @@ public class RegistroActiv extends AppCompatActivity {
 
     private void enviarADrive() {
         // SUBIR datos a DRIVE
-        String url =  "https://docs.google.com/forms/d/e/1FAIpQLScqxXsrrKDmzDiBlZ-cT9hlj8ou11gwIRFhUeVtCKWIFag_dA/formResponse";
-        String paramUsuario = "entry.570506592";
-        String paramNombre = "entry.55769158";
-        String paramEdad = "entry.1731655249";
-        String paramCorreo = "entry.1334015331";
-        String paramOcupacion = "entry.1712960939";
-        String paramPassword = "entry.923629146";
+        String url =  "https://docs.google.com/forms/d/e/1FAIpQLSfyI1Z3_eGvFmEC4tqOQFfhXy2h5E8p7zzNYASSrEgzzw85EA/formResponse";
+        String paramUsuario = "entry.283016652";
+        String paramNombre = "entry.1840762877";
+        String paramEdad = "entry.712716663";
+        String paramCorreo = "entry.1203683998";
+        String paramOcupacion = "entry.1426666584";
+        String paramPassword = "entry.952065839";
 
         AndroidNetworking.post(url)
                 .addBodyParameter(paramUsuario,etUsuario.getText().toString())
@@ -100,10 +100,10 @@ public class RegistroActiv extends AppCompatActivity {
     }
 }
 
-//  https://docs.google.com/forms/d/e/1FAIpQLScqxXsrrKDmzDiBlZ-cT9hlj8ou11gwIRFhUeVtCKWIFag_dA/formResponse
-//  usuario: entry.570506592
-//  nombre: entry.55769158
-//  edad: entry.1731655249
-//  correo: entry.1334015331
-//  ocupacion: entry.1712960939
-//  password:  entry.923629146
+//  https://docs.google.com/forms/d/e/1FAIpQLSfyI1Z3_eGvFmEC4tqOQFfhXy2h5E8p7zzNYASSrEgzzw85EA/formResponse
+//  usuario: entry.283016652
+//  nombre: entry.1840762877
+//  edad: entry.712716663
+//  correo: entry.1203683998
+//  ocupacion: entry.1426666584
+//  password: entry.952065839
