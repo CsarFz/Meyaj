@@ -19,7 +19,18 @@ import android.widget.GridLayout;
 public class BuscarFrag extends Fragment
 {
     GridLayout mainGrid;
-    CardView cdBuscar;
+
+    // CARDVIEWS (BOTONES)
+    CardView cvCarpintero;
+    CardView cvElectricista;
+    CardView cvPlomero;
+    CardView cvAlbanil;
+    CardView cvBuscar;
+    CardView cvTecnico;
+    CardView cvTaxi;
+    CardView cvCerrajero;
+    CardView cvMecanico;
+
 
     public BuscarFrag() {
         // Required empty public constructor
@@ -35,8 +46,73 @@ public class BuscarFrag extends Fragment
         mainGrid = getActivity().findViewById(R.id.mainGrid);
 
         // Listener de Card View Buscar
-        cdBuscar = myView.findViewById(R.id.cdBuscar);
-        cdBuscar.setOnClickListener(new View.OnClickListener() {
+        cvCarpintero = myView.findViewById(R.id.cvCarpintero);
+        cvElectricista = myView.findViewById(R.id.cvElectricista);
+        cvPlomero = myView.findViewById(R.id.cvPlomero);
+        cvAlbanil = myView.findViewById(R.id.cvAlbanil);
+        cvBuscar = myView.findViewById(R.id.cvBuscar);
+        cvTecnico = myView.findViewById(R.id.cvTecnico);
+        cvTaxi = myView.findViewById(R.id.cvTaxi);
+        cvCerrajero = myView.findViewById(R.id.cvCerrajero);
+        cvMecanico = myView.findViewById(R.id.cvMecanico);
+
+        cvCarpintero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
+                startActivity(intBuscador);
+            }
+        });
+        cvElectricista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
+                startActivity(intBuscador);
+            }
+        });
+        cvPlomero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
+                startActivity(intBuscador);
+            }
+        });
+        cvAlbanil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
+                startActivity(intBuscador);
+            }
+        });
+        cvBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
+                startActivity(intBuscador);
+            }
+        });
+        cvTecnico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
+                startActivity(intBuscador);
+            }
+        });
+        cvTaxi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
+                startActivity(intBuscador);
+            }
+        });
+        cvCerrajero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);
+                startActivity(intBuscador);
+            }
+        });
+        cvMecanico.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intBuscador = new Intent(getActivity(), BuscarServicioActiv.class);

@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ResultadosActiv" />
-        <activity android:name=".DetalleProfesionistaActiv"></activity>
+        <activity android:name=".DetalleProfesionistaActiv" />
     </application>
 
 </manifest>
