@@ -5,4 +5,5 @@
     <color name="colorAccent">#FFF</color>
     <color name="colorIcons">#FFF</color>
     <color name="colorWhiteTransparent">#80FFFFFF</color>
+    <color name="colorBlackText">#000</color>
 </resources>

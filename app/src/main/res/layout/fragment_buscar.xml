@@ -45,6 +45,14 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/carpintero" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Carpintero"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlackText"
+                    android:textSize="11sp" />
+
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -72,6 +80,13 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/electricista"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Electricista"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlackText"
+                    android:textSize="10.5sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -99,6 +114,14 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/plomero"/>
 
+                <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Plomero"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlackText"
+                    android:layout_marginLeft="6sp"
+                android:textSize="11sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -126,6 +149,14 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/alba_il"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Albañil"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlackText"
+                    android:layout_marginLeft="8sp"
+                    android:textSize="12sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -154,6 +185,13 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@android:drawable/ic_menu_search" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Buscar Servicio"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="14sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -181,6 +219,14 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/mecanico_pc"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Técnico"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlackText"
+                    android:layout_marginLeft="6sp"
+                    android:textSize="11sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -208,6 +254,14 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/taxi" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Taxi"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlackText"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="14sp"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -235,6 +289,13 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/software"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Software"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlackText"
+                    android:textSize="13sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -262,6 +323,13 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/mecanico"/>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mecánico"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlackText"
+                    android:textSize="12sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
