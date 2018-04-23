@@ -36,5 +36,5 @@ dependencies {
 
     implementation 'com.amitshekhar.android:android-networking:1.0.1'
 
-    compile 'de.hdodenhof:circleimageview:+'
+    implementation 'de.hdodenhof:circleimageview:+'
 }

@@ -17,10 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="98dp"
             android:layout_weight="4.2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:orientation="vertical"
             android:background="@color/colorPrimary">
 
