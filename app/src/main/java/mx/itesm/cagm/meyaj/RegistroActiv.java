@@ -17,6 +17,7 @@ public class RegistroActiv extends AppCompatActivity {
 
     private EditText etUsuario;
     private EditText etNombre;
+    private EditText etApellido;
     private EditText etEdad;
     private EditText etCorreo;
     private EditText etOcupacion;
@@ -30,6 +31,7 @@ public class RegistroActiv extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
         etUsuario = findViewById(R.id.etUsuario);
         etNombre = findViewById(R.id.etNombre);
+        etApellido = findViewById(R.id.etApellido);
         etEdad = findViewById(R.id.etEdad);
         etCorreo = findViewById(R.id.etCorreo);
         etOcupacion = findViewById(R.id.etOcupacion);
