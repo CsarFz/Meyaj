@@ -37,4 +37,11 @@ dependencies {
     implementation 'com.amitshekhar.android:android-networking:1.0.1'
 
     implementation 'de.hdodenhof:circleimageview:+'
+
+    implementation 'com.google.firebase:firebase-auth:15.0.0'
+
+
+
 }
+
+apply plugin: 'com.google.gms.google-services'
