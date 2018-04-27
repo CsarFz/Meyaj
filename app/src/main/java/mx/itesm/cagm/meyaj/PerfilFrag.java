@@ -1,23 +1,48 @@
 package mx.itesm.cagm.meyaj;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.androidnetworking.model.Progress;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PerfilFrag extends Fragment
-{
+public class PerfilFrag extends Fragment {
+
+
+    private ProgressDialog progressDialog;
+    private FirebaseAuth firebaseAuth;
+
+
+
     //Button btnRegistro;
-    Button btnConfigurar;
-    TextView tvRegistro;
+    private Button btnIniciarSesion;
+    private EditText etCorreo;
+    private EditText etPassword;
+
+
+
+
+
+    private TextView tvRegistro;
 
     public PerfilFrag() {
         // Required empty public constructor
@@ -29,6 +54,18 @@ public class PerfilFrag extends Fragment
                              Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.fragment_perfil, container, false);
 
+
+
+        progressDialog = new ProgressDialog(getContext());
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        if(firebaseAuth.getCurrentUser() != null){
+            // AQUI DEBE IR LA LIGA PARA LA ACTIVIDAD DEL PERFIL
+            // Iniciar la actividad del perfil
+            //startActivity( new Intent(getContext(), MenuPrincipalActiv.class));
+        }
+
+
         tvRegistro = myView.findViewById(R.id.btnRegistrar);
         tvRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,25 +75,57 @@ public class PerfilFrag extends Fragment
             }
         });
 
-        // LISTENER DE BOTON REGISTRARSE
-        //btnRegistro = myView.findViewById(R.id.btnRegistrar);
-        /*btnRegistro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intRegistro = new Intent(getActivity(), RegistroActiv.class);
-                startActivity(intRegistro);
-            }
-        });/*gis
+        etCorreo = myView.findViewById(R.id.etCorreoI);
+        etPassword = myView.findViewById(R.id.etPasswordI);
 
-        // LISTENER DE BOTON CONFIGURAR
-        btnConfigurar = myView.findViewById(R.id.btnConfig);
-        btnConfigurar.setOnClickListener(new View.OnClickListener() {
+
+
+        btnIniciarSesion = myView.findViewById(R.id.btnIngresar);
+        btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intConfigurar = new Intent(getActivity(), ConfigurarActiv.class);
-                startActivity(intConfigurar);
+                userLogin();
             }
-        });*/
+
+            private void userLogin() {
+                String email = etCorreo.getText().toString().trim();
+                String password = etPassword.getText().toString().trim();
+
+
+
+                if(TextUtils.isEmpty(email)){
+                    Toast.makeText(getContext(), "El campo Correo debe estar lleno", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(TextUtils.isEmpty(password)){
+                    Toast.makeText(getContext(), "El campo Password debe estar lleno", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+                progressDialog.setMessage("Ingresando.......");
+                progressDialog.show();
+
+
+                firebaseAuth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener((Activity) getContext(), new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                progressDialog.dismiss();
+
+                                if(task.isSuccessful()){
+                                    // Iniciar la actividad del perfil
+                                    startActivity( new Intent(getContext(), ConfigurarActiv.class));
+                                }else{
+                                    Toast.makeText(getContext(),"Usuario o contraseña invalidos", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+            }
+        });
+
+
+
 
         // Inflate the layout for this fragment
         return myView;
