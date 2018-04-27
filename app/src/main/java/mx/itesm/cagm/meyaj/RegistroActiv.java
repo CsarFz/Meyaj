@@ -24,12 +24,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegistroActiv extends AppCompatActivity {
 
-    private EditText etUsuario;
-    private EditText etNombre;
-    private EditText etApellido;
-    private EditText etEdad;
+
     private EditText etCorreo;
-    private EditText etOcupacion;
+
     private EditText etPassword;
     private Button btnEnviar;
     private Button btnCancelar;
@@ -58,12 +55,7 @@ public class RegistroActiv extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_registro);
-        etUsuario = findViewById(R.id.etUsuario);
-        etNombre = findViewById(R.id.etNombre);
-        etApellido = findViewById(R.id.etApellido);
-        etEdad = findViewById(R.id.etEdad);
         etCorreo = findViewById(R.id.etCorreo);
-        etOcupacion = findViewById(R.id.etOcupacion);
         etPassword = findViewById(R.id.etPassword);
 
         btnEnviar = findViewById(R.id.btnEnviar);
@@ -90,40 +82,18 @@ public class RegistroActiv extends AppCompatActivity {
     }
 
     private void registrarUsuario(){
-        String usuario = etUsuario.getText().toString().trim();
-        String nombre = etNombre.getText().toString().trim();
-        String apellido = etApellido.getText().toString().trim();
-        String edad = etEdad.getText().toString().trim();
+
         String correo = etCorreo.getText().toString().trim();
-        String ocupacion = etOcupacion.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
 
         //Comprobar que los campos esten llenos
-        if(TextUtils.isEmpty(usuario)){
-            Toast.makeText(getApplicationContext(), "El campo Usuario debe estar lleno", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(nombre)){
-            Toast.makeText(getApplicationContext(), "El campo Nombre debe estar lleno", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(apellido)){
-            Toast.makeText(getApplicationContext(), "El campo Apellido debe estar lleno", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if(TextUtils.isEmpty(edad)){
-            Toast.makeText(getApplicationContext(), "El campo Edad debe estar lleno", Toast.LENGTH_SHORT).show();
-            return;
-        }
+
         if(TextUtils.isEmpty(correo)){
             Toast.makeText(getApplicationContext(), "El campo Correo debe estar lleno", Toast.LENGTH_SHORT).show();
             return;
         }
-        if(TextUtils.isEmpty(ocupacion)){
-            Toast.makeText(getApplicationContext(), "El campo Ocupacion debe estar lleno", Toast.LENGTH_SHORT).show();
-            return;
-        }
+
         if(TextUtils.isEmpty(password)){
             Toast.makeText(getApplicationContext(), "El campo Password debe estar lleno", Toast.LENGTH_SHORT).show();
             return;
@@ -158,46 +128,7 @@ public class RegistroActiv extends AppCompatActivity {
                 });
     }
 
-    private void enviarADrive() {
-        // SUBIR datos a DRIVE
-        String url =  "https://docs.google.com/forms/d/e/1FAIpQLSfyI1Z3_eGvFmEC4tqOQFfhXy2h5E8p7zzNYASSrEgzzw85EA/formResponse";
-        String paramUsuario = "entry.283016652";
-        String paramNombre = "entry.1840762877";
-        String paramEdad = "entry.712716663";
-        String paramCorreo = "entry.1203683998";
-        String paramOcupacion = "entry.1426666584";
-        String paramPassword = "entry.952065839";
 
-        AndroidNetworking.post(url)
-                .addBodyParameter(paramUsuario,etUsuario.getText().toString())
-                .addBodyParameter(paramNombre,etNombre.getText().toString())
-                .addBodyParameter(paramEdad,etEdad.getText().toString())
-                .addBodyParameter(paramCorreo,etCorreo.getText().toString())
-                .addBodyParameter(paramOcupacion,etOcupacion.getText().toString())
-                .addBodyParameter(paramPassword,etPassword.getText().toString())
-                .setPriority(Priority.MEDIUM)
-                .build()
-                .getAsString(new StringRequestListener() {
-                    @Override
-                    public void onResponse(String response) {
-
-                    }
-
-                    @Override
-                    public void onError(ANError anError) {
-
-                    }
-                });
-
-        etUsuario.setText("");
-        etNombre.setText("");
-        etEdad.setText("");
-        etCorreo.setText("");
-        etOcupacion.setText("");
-        etPassword.setText("");
-
-        RegistroActiv.super.onBackPressed();
-    }
 }
 
 //  https://docs.google.com/forms/d/e/1FAIpQLSfyI1Z3_eGvFmEC4tqOQFfhXy2h5E8p7zzNYASSrEgzzw85EA/formResponse

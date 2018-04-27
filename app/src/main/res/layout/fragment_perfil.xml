@@ -59,29 +59,29 @@
                 android:layout_weight="1" />
 
             <EditText
-                android:id="@+id/editText3"
+                android:id="@+id/etCorreoI"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/str_correoElectronico"
-                android:inputType="textPersonName" />
+                android:inputType="textEmailAddress" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/etPasswordI"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/str_contrasena"
                 android:inputType="textPassword" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnIngresar"
                 style="@style/button_style"
                 android:layout_weight="1"
                 android:text="@string/str_ingresar"
