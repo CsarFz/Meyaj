@@ -115,7 +115,9 @@ public class PerfilFrag extends Fragment {
 
                                 if(task.isSuccessful()){
                                     // Iniciar la actividad del perfil
-                                    //startActivity( new Intent(getContext(), MenuPrincipalActiv.class));
+                                    startActivity( new Intent(getContext(), ConfigurarActiv.class));
+                                }else{
+                                    Toast.makeText(getContext(),"Usuario o contraseña invalidos", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
