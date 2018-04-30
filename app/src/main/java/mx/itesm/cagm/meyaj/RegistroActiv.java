@@ -31,15 +31,8 @@ public class RegistroActiv extends AppCompatActivity {
     private Button btnEnviar;
     private Button btnCancelar;
 
-
-
-
     private ProgressDialog progressDialog;
-
-
     private FirebaseAuth firebaseAuth;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

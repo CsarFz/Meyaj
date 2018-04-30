@@ -6,6 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -19,7 +26,6 @@ public class ResultadosActiv extends AppCompatActivity {
             {"Nombre","Profesion", "20.9", "6", "19"},
             {"Nombre","Profesion", "30.8", "9", "101"},
             {"Nombre","Profesion", "8.9", "2", "50"},
-
     };
 
     int[] imgProfesionistas = {R.drawable.carpintero,R.drawable.electricista,R.drawable.plomero,R.drawable.mecanico,R.drawable.taxi};
@@ -28,6 +34,26 @@ public class ResultadosActiv extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultados);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference(FBReferences.PROEFSIONISTAS_REF);
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot){
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    System.out.println(snapshot.getValue());
+                    System.out.println("QUE PASA");
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("No es posible");
+            }
+        });
+
+
 
         lista = (ListView) findViewById(R.id.lvProfesionistas);
         lista.setAdapter(new Adaptador(this,datosProfesionistas,imgProfesionistas));
@@ -43,6 +69,12 @@ public class ResultadosActiv extends AppCompatActivity {
                 startActivity(visorDetalles);
             }
         });
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
     }
 }
