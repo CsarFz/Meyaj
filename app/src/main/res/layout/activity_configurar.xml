@@ -25,14 +25,14 @@
         app:srcCompat="@drawable/profile" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tvNombreUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/str_nombre_usuario"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="#555555"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.125"
@@ -40,32 +40,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/tvNumeroUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/str_numero_celular"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="#555555"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreUsuario" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/tvCorreoUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/str_correo_usuario"
-        android:textColor="@android:color/darker_gray"
+        android:textColor="#555555"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumeroUsuario"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -135,7 +135,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre(s)"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="#555555" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -155,7 +156,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Apellidos"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textColor="#555555" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -175,7 +177,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Número de teléfono"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="#555555" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -196,7 +199,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/strPassword"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColor="#555555" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -232,6 +236,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="68dp"
         android:text="Eliminar"
+        android:textColor="@android:color/holo_red_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toEndOf="@+id/textView16"

@@ -31,7 +31,8 @@ public class PerfilFrag extends Fragment {
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
 
-
+    // Button btnConfig
+    private  Button btnConfigurar;
 
     //Button btnRegistro;
     private Button btnIniciarSesion;
@@ -94,16 +95,16 @@ public class PerfilFrag extends Fragment {
 
 
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(getContext(), "El campo Correo debe estar lleno", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "El campo  de correo debe estar lleno.", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    Toast.makeText(getContext(), "El campo Password debe estar lleno", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "El campo de contraseña debe estar lleno", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
 
-                progressDialog.setMessage("Ingresando.......");
+                progressDialog.setMessage("Ingresando...");
                 progressDialog.show();
 
 
@@ -117,7 +118,7 @@ public class PerfilFrag extends Fragment {
                                     // Iniciar la actividad del perfil
                                     startActivity( new Intent(getContext(), ConfigurarActiv.class));
                                 }else{
-                                    Toast.makeText(getContext(),"Usuario o contraseña invalidos", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(),"Usuario o contraseña inválidos.", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -125,6 +126,14 @@ public class PerfilFrag extends Fragment {
         });
 
 
+        btnConfigurar = myView.findViewById(R.id.btnConfig);
+        btnConfigurar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intConfigurar = new Intent(getActivity(), ConfigurarActiv.class);
+                startActivity(intConfigurar);
+            }
+        });
 
 
         // Inflate the layout for this fragment
