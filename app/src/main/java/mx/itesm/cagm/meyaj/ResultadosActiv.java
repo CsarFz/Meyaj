@@ -14,11 +14,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ResultadosActiv extends AppCompatActivity {
 
     ListView lista;
+    List<String[]>  profesionistas = new ArrayList<>();
+    List<String[]>  profesionistas2 = new ArrayList<>();
+    String[] datosProf = new String[6];
 
     String[][] datosProfesionistas = {
             {"Nombre","Profesion", "11.6", "8", "45","Direccion"},
@@ -28,6 +32,10 @@ public class ResultadosActiv extends AppCompatActivity {
             {"Nombre","Profesion", "8.9", "2", "50"},
     };
 
+    String[] d1 = {"Nombre","Profesion", "11.6", "8", "45","Direccion"};
+    String[] d2 = {"Ms","Profesion", "11.6", "8", "45","Direccion"};
+    String[] d3 = {"Mr","Profesion", "11.6", "8", "45","Direccion"};
+
     int[] imgProfesionistas = {R.drawable.carpintero,R.drawable.electricista,R.drawable.plomero,R.drawable.mecanico,R.drawable.taxi};
 
     @Override
@@ -36,14 +44,43 @@ public class ResultadosActiv extends AppCompatActivity {
         setContentView(R.layout.activity_resultados);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference(FBReferences.PROEFSIONISTAS_REF);
-
+        DatabaseReference ref = database.getReference(FBReferences.PROFESIONISTAS_REF);
+        final String pSolicitada = "Electricista";
+        System.out.println("HICE ANTES ESTO");
+        profesionistas2.clear();
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot){
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    System.out.println("Todos los datos");
                     System.out.println(snapshot.getValue());
-                    System.out.println("QUE PASA");
+                    System.out.println("Profesion");
+                    String prof = snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);/*
+                    if(prof.equals(pSolicitada)){
+                        System.out.println("ENTONCRE UNA");
+                        //Captura de nombre
+                        datosProf[0]= snapshot.child(FBReferences.NOMBRE_REF).getValue(String.class) + " "+snapshot.child(FBReferences.APELLIDO_REF).getValue(String.class) ;
+                        //Captura de Profesion
+                        datosProf[1]= snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);
+                        //Captura distancia PENDIENTE
+                        datosProf[2] = "1.2";
+                        //Captura calificacion
+                        datosProf[3] = snapshot.child(FBReferences.CALIFICACION_REF).getValue(String.class);
+                        //Captura calificaciones
+                        datosProf[4] = snapshot.child(FBReferences.CALIFICACIONES_REF).getValue(String.class);
+                        //Captura Direccion
+                        datosProf[5] = "Monte alegría";
+                        profesionistas.add(datosProf);
+                    }
+                    */
+
+                    profesionistas2.add(d1);
+                    profesionistas2.add(d2);
+                    profesionistas2.add(d3);
+
+                    System.out.println(prof);
+                    System.out.println("Hijo Servicios");
+                    System.out.println(snapshot.child(FBReferences.SERVICIOS_REF).getValue());
                 }
             }
 
@@ -51,12 +88,14 @@ public class ResultadosActiv extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("No es posible");
             }
+
+
         });
 
 
-
-        lista = (ListView) findViewById(R.id.lvProfesionistas);
-        lista.setAdapter(new Adaptador(this,datosProfesionistas,imgProfesionistas));
+        //Ingresa datos extraídos de la BD
+        lista = findViewById(R.id.lvProfesionistas);
+        lista.setAdapter(new Adaptador(this,profesionistas2,imgProfesionistas));
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
