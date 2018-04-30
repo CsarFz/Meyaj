@@ -37,12 +37,12 @@ public class BuscarServicioActiv extends AppCompatActivity {
     ListView searchService;
     ArrayAdapter<String> adapter;
 
-    EditText searchField;
+    /*EditText searchField;
     RecyclerView resultList;
     ImageButton btnSearch;
     DatabaseReference dbReference;
     ArrayList<String> nameService;
-    ArrayList<String> imgService;
+    ArrayList<String> imgService;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class BuscarServicioActiv extends AppCompatActivity {
 
         searchService = findViewById(R.id.search_service);
 
-        // <----- César
+        /* // <----- César
         searchField = findViewById(R.id.etSearch);
         resultList = findViewById(R.id.rvListServices);
         btnSearch = findViewById(R.id.btnSearch);
@@ -82,7 +82,7 @@ public class BuscarServicioActiv extends AppCompatActivity {
                 }
             }
         });
-        // -----> César
+        // -----> César*/
 
         ArrayList<String> arrayService = new ArrayList<>();
         arrayService.addAll(Arrays.asList(getResources().getStringArray(R.array.my_services)));
@@ -106,7 +106,7 @@ public class BuscarServicioActiv extends AppCompatActivity {
 
         searchService.setAdapter(adapter);
     }
-
+    /*
     private void setAdapter(final String searchedString) {
         dbReference.child("services").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -122,10 +122,6 @@ public class BuscarServicioActiv extends AppCompatActivity {
                         imgService.add(img_service);
                         count++;
                     }
-
-                    if(count == 15) {
-                        break;
-                    }
                 }
             }
 
@@ -134,7 +130,7 @@ public class BuscarServicioActiv extends AppCompatActivity {
 
             }
         });
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
