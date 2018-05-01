@@ -7,29 +7,29 @@
     tools:context=".DetalleProfesionistaActiv">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Nombre"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/ivProfesionista"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/tvProfesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Profesion"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toEndOf="@+id/ivProfesionista"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
 
     <TextView
-        android:id="@+id/textView22"
+        android:id="@+id/Address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -40,7 +40,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/ivProfesionista"
         android:layout_width="102dp"
         android:layout_height="98dp"
         android:layout_marginBottom="8dp"
@@ -67,7 +67,7 @@
         app:layout_constraintGuide_begin="188dp" />
 
     <RatingBar
-        android:id="@+id/ratingBar2"
+        android:id="@+id/ratingBar"
         style="@style/Widget.AppCompat.RatingBar.Indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -78,11 +78,11 @@
         android:layout_marginStart="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+        app:layout_constraintStart_toEndOf="@+id/ivProfesionista"
+        app:layout_constraintTop_toBottomOf="@+id/tvProfesion" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/tvDireccion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -93,7 +93,7 @@
         android:text="Calle #, Colonia, C.P."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+        app:layout_constraintTop_toBottomOf="@+id/Address" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline8"

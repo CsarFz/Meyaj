@@ -29,20 +29,6 @@ public class ResultadosActiv extends AppCompatActivity {
     String[] datosProf;
 
     Adaptador adaptador;
-/*
-    String[][] datosProfesionistas = {
-            {"Nombre","Profesion", "11.6", "8", "45","Direccion"},
-            {"Nombre","Profesion", "12.5", "8", "35"},
-            {"Nombre","Profesion", "20.9", "6", "19"},
-            {"Nombre","Profesion", "30.8", "9", "101"},
-            {"Nombre","Profesion", "8.9", "2", "50"},
-    };
-*/
-    String[] d1 = {"Nombre","Profesion", "11.6", "8", "45","Direccion"};
-    String[] d2 = {"Ms","Profesion", "11.6", "8", "45","Direccion"};
-    String[] d3 = {"Mr","Profesion", "11.6", "8", "45","Direccion"};
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +43,7 @@ public class ResultadosActiv extends AppCompatActivity {
         datosProf = new String[6];
         imgProfesionistas = new int[]{R.drawable.carpintero, R.drawable.electricista, R.drawable.plomero, R.drawable.mecanico, R.drawable.taxi};
 
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference(FBReferences.PROFESIONISTAS_REF);
 
@@ -64,64 +51,46 @@ public class ResultadosActiv extends AppCompatActivity {
         rv.setAdapter(adaptador);
 
         final String pSolicitada = "Electricista";
-        System.out.println("HICE ANTES ESTO");
+
+        adaptador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ResultadosActiv.this, DetalleProfesionistaActiv.class);
+                intent.putExtra("NAME", profesionistas.get(rv.getChildAdapterPosition(view))[0]);
+                intent.putExtra("ADDRESS", profesionistas.get(rv.getChildAdapterPosition(view))[5]);
+                intent.putExtra("PROFESSION", profesionistas.get(rv.getChildAdapterPosition(view))[1]);
+                startActivity(intent);
+            }
+        });
 
         ref.addValueEventListener(new ValueEventListener() {
-
             @Override
             public void onDataChange(DataSnapshot dataSnapshot){
                 profesionistas.clear();
                 for (DataSnapshot snapshot:
                         dataSnapshot.getChildren()) {
-                    /*System.out.println("Todos los datos");
-                    System.out.println(snapshot.getValue());
-                    System.out.println("Profesion");
-                    String prof = snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);/*
-                    if(prof.equals(pSolicitada)){
-                        System.out.println("ENTONCRE UNA");
-                        //Captura de nombre
-                        datosProf[0]= snapshot.child(FBReferences.NOMBRE_REF).getValue(String.class) + " "+snapshot.child(FBReferences.APELLIDO_REF).getValue(String.class) ;
+
+                    String prof = snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);
+                    if(prof.equals(pSolicitada)) {
+                        datosProf[0] = snapshot.child(FBReferences.NOMBRE_REF).getValue(String.class) + " " + snapshot.child(FBReferences.APELLIDO_REF).getValue(String.class);
                         //Captura de Profesion
-                        datosProf[1]= snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);
+                        datosProf[1] = snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);
                         //Captura distancia PENDIENTE
                         datosProf[2] = "1.2";
                         //Captura calificacion
-                        datosProf[3] = snapshot.child(FBReferences.CALIFICACION_REF).getValue(String.class);
+                        datosProf[3] = String.valueOf(snapshot.child(FBReferences.CALIFICACION_REF).getValue(Integer.class));
                         //Captura calificaciones
-                        datosProf[4] = snapshot.child(FBReferences.CALIFICACIONES_REF).getValue(String.class);
+                        datosProf[4] = String.valueOf(snapshot.child(FBReferences.CALIFICACIONES_REF).getValue(Integer.class));
                         //Captura Direccion
                         datosProf[5] = "Monte alegría";
                         profesionistas.add(datosProf);
+                        System.out.println(profesionistas.toString());
+                        datosProf = new String[6];
                     }
-
-
-
-
-                    System.out.println(prof);
-                    System.out.println("Hijo Servicios");
-                    System.out.println(snapshot.child(FBReferences.SERVICIOS_REF).getValue());
-                */
-
-                    datosProf[0]= snapshot.child(FBReferences.NOMBRE_REF).getValue(String.class) + " "+snapshot.child(FBReferences.APELLIDO_REF).getValue(String.class) ;
-                    System.out.println("CAPTURE A: "+datosProf[0]);
-                    //Captura de Profesion
-                    datosProf[1]= snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);
-                    //Captura distancia PENDIENTE
-                    datosProf[2] = "1.2";
-                    //Captura calificacion
-                    datosProf[3] = String.valueOf(snapshot.child(FBReferences.CALIFICACION_REF).getValue(Integer.class));
-                    //Captura calificaciones
-                    datosProf[4] = String.valueOf(snapshot.child(FBReferences.CALIFICACIONES_REF).getValue(Integer.class));
-                    //Captura Direccion
-                    datosProf[5] = "Monte alegría";
-                    profesionistas.add(datosProf);
-                    System.out.println(profesionistas.toString());
-                    datosProf = new String[6];
                 }
 
                 adaptador.notifyDataSetChanged();
             }
-
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -130,34 +99,7 @@ public class ResultadosActiv extends AppCompatActivity {
 
 
         });
-/*
-        profesionistas2.add(d1);
-        profesionistas2.add(d2);
-        profesionistas2.add(d3);
-        profesionistas2.add(d4);
-        profesionistas2.add(d5);
-        profesionistas2.add(d6);
-        profesionistas2.add(d4);
-        profesionistas2.add(d5);
-        profesionistas2.add(d6);
 
-        System.out.println("COMO LLEGUE HASTA ACA?"+ profesionistas2.size());
-        //Ingresa datos extraídos de la BD
-        lista = findViewById(R.id.lvProfesionistas);
-        lista.setAdapter(new Adaptador(this,profesionistas2,imgProfesionistas));
-
-        lista.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent visorDetalles = new Intent(view.getContext(), DetalleProfesionistaActiv.class);
-                visorDetalles.putExtra("NOM", datosProfesionistas[i][0]);
-                visorDetalles.putExtra("TIT", datosProfesionistas[i][0]);
-                visorDetalles.putExtra("TIT", datosProfesionistas[i][0]);
-                visorDetalles.putExtra("TIT", datosProfesionistas[i][0]);
-                startActivity(visorDetalles);
-            }
-        });
-*/
     }
 
     @Override
