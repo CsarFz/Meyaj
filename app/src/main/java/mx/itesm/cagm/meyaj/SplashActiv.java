@@ -9,6 +9,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.google.android.gms.common.stats.WakeLockEvent;
+
 
 public class SplashActiv extends AppCompatActivity
 {
@@ -24,7 +26,7 @@ public class SplashActiv extends AppCompatActivity
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.transition);
 
         iv.startAnimation(animation);
-        final Intent intMenuPrincipal = new Intent(this, MenuPrincipalActiv.class);
+        final Intent intBienvenida = new Intent(this, WelcomeActiv.class);
         Thread timer = new Thread(){
             public void run() {
                 try {
@@ -32,7 +34,7 @@ public class SplashActiv extends AppCompatActivity
                 } catch(InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    startActivity(intMenuPrincipal);
+                    startActivity(intBienvenida);
                     finish();
                 }
             }
