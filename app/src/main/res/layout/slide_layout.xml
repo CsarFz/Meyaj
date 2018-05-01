@@ -15,7 +15,8 @@
         android:layout_marginTop="32dp"
         app:srcCompat="@drawable/electricista"
         tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="128dp" />
+        tools:layout_editor_absoluteY="128dp"
+        android:tint="@color/colorIcons"/>
 
     <TextView
         android:id="@+id/slide_heading"
