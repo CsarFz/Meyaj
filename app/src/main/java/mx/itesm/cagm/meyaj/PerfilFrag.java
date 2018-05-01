@@ -31,16 +31,10 @@ public class PerfilFrag extends Fragment {
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
 
-    // Button btnConfig
-    private  Button btnConfigurar;
-
     //Button btnRegistro;
     private Button btnIniciarSesion;
     private EditText etCorreo;
     private EditText etPassword;
-
-
-
 
 
     private TextView tvRegistro;
@@ -57,7 +51,7 @@ public class PerfilFrag extends Fragment {
 
 
 
-        progressDialog = new ProgressDialog(getContext());
+        progressDialog = new ProgressDialog(getContext(), R.style.MyAlerDialogStyle);
         firebaseAuth = FirebaseAuth.getInstance();
 
         if(firebaseAuth.getCurrentUser() != null){
@@ -103,8 +97,9 @@ public class PerfilFrag extends Fragment {
                     return;
                 }
 
-
                 progressDialog.setMessage("Ingresando...");
+                progressDialog.setIndeterminate(true);
+                progressDialog.setCanceledOnTouchOutside(false);
                 progressDialog.show();
 
 
@@ -122,16 +117,6 @@ public class PerfilFrag extends Fragment {
                                 }
                             }
                         });
-            }
-        });
-
-
-        btnConfigurar = myView.findViewById(R.id.btnConfig);
-        btnConfigurar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intConfigurar = new Intent(getActivity(), ConfigurarActiv.class);
-                startActivity(intConfigurar);
             }
         });
 
