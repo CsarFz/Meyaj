@@ -51,7 +51,7 @@ public class PerfilFrag extends Fragment {
 
 
 
-        progressDialog = new ProgressDialog(getContext(), R.style.MyAlerDialogStyle);
+        progressDialog = new ProgressDialog(getContext(), R.style.MyAlertDialogStyle);
         firebaseAuth = FirebaseAuth.getInstance();
 
         if(firebaseAuth.getCurrentUser() != null){
