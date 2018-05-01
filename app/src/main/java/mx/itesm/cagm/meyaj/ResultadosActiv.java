@@ -37,14 +37,12 @@ public class ResultadosActiv extends AppCompatActivity {
             {"Nombre","Profesion", "30.8", "9", "101"},
             {"Nombre","Profesion", "8.9", "2", "50"},
     };
-
+*/
     String[] d1 = {"Nombre","Profesion", "11.6", "8", "45","Direccion"};
     String[] d2 = {"Ms","Profesion", "11.6", "8", "45","Direccion"};
     String[] d3 = {"Mr","Profesion", "11.6", "8", "45","Direccion"};
-    String[] d4 = {"Nombre","Profesion", "11.6", "8", "45","Direccion"};
-    String[] d5 = {"Ms","Profesion", "11.6", "8", "45","Direccion"};
-    String[] d6 = {"Mr","Profesion", "11.6", "8", "45","Direccion"};
-*/
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +101,7 @@ public class ResultadosActiv extends AppCompatActivity {
                     System.out.println("Hijo Servicios");
                     System.out.println(snapshot.child(FBReferences.SERVICIOS_REF).getValue());
                 */
+
                     datosProf[0]= snapshot.child(FBReferences.NOMBRE_REF).getValue(String.class) + " "+snapshot.child(FBReferences.APELLIDO_REF).getValue(String.class) ;
                     System.out.println("CAPTURE A: "+datosProf[0]);
                     //Captura de Profesion
@@ -116,10 +115,10 @@ public class ResultadosActiv extends AppCompatActivity {
                     //Captura Direccion
                     datosProf[5] = "Monte alegría";
                     profesionistas.add(datosProf);
-
-                    System.out.println("AQUI HAY ALGO");
                     System.out.println(profesionistas.toString());
+                    datosProf = new String[6];
                 }
+
                 adaptador.notifyDataSetChanged();
             }
 
