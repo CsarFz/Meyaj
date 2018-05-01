@@ -124,4 +124,19 @@ public class PerfilFrag extends Fragment {
         // Inflate the layout for this fragment
         return myView;
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 }
