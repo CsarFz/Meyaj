@@ -45,14 +45,6 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/hammer" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Carpintero"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorBlackText"
-                    android:textSize="11sp" />
-
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -80,13 +72,6 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/light_bulb" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Electricista"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorBlackText"
-                    android:textSize="10.5sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -112,15 +97,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="72dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/repairing" />
+                    android:src="@drawable/tuberia" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Plomero"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorBlackText"
-                    android:textSize="12sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -148,14 +126,6 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/brick_wall" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8sp"
-                    android:text="Albañil"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorBlackText"
-                    android:textSize="12sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -218,14 +188,6 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/coding" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4sp"
-                    android:text="Técnico"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorBlackText"
-                    android:textSize="13sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -253,14 +215,6 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/taxi" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="14sp"
-                    android:text="Taxi"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorBlackText"
-                    android:textSize="14sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -288,13 +242,6 @@
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/key" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cerrajero"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorBlackText"
-                    android:textSize="13sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -320,15 +267,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="72dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/mechanism" />
+                    android:src="@drawable/garage" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mecánico"
-                    android:textAlignment="center"
-                    android:textColor="@color/colorBlackText"
-                    android:textSize="12sp" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
