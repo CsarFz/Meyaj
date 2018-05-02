@@ -35,12 +35,11 @@ public class ResultadosActiv extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultados);
 
-
         rv = (RecyclerView) findViewById(R.id.rvProfesionistas);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
         profesionistas = new ArrayList<>();
-        datosProf = new String[6];
+        datosProf = new String[7];
         imgProfesionistas = new int[]{R.drawable.carpintero, R.drawable.electricista, R.drawable.plomero, R.drawable.mecanico, R.drawable.taxi};
 
 
@@ -59,6 +58,7 @@ public class ResultadosActiv extends AppCompatActivity {
                 intent.putExtra("NAME", profesionistas.get(rv.getChildAdapterPosition(view))[0]);
                 intent.putExtra("ADDRESS", profesionistas.get(rv.getChildAdapterPosition(view))[5]);
                 intent.putExtra("PROFESSION", profesionistas.get(rv.getChildAdapterPosition(view))[1]);
+                intent.putExtra("KEY",profesionistas.get(rv.getChildAdapterPosition(view))[6]);
                 startActivity(intent);
             }
         });
@@ -83,9 +83,10 @@ public class ResultadosActiv extends AppCompatActivity {
                         datosProf[4] = String.valueOf(snapshot.child(FBReferences.CALIFICACIONES_REF).getValue(Integer.class));
                         //Captura Direccion
                         datosProf[5] = "Monte alegría";
+                        datosProf[6] = String.valueOf(snapshot.getKey());
                         profesionistas.add(datosProf);
                         System.out.println(profesionistas.toString());
-                        datosProf = new String[6];
+                        datosProf = new String[7];
                     }
                 }
 
