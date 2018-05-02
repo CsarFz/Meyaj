@@ -41,7 +41,7 @@ public class AdaptadorServicio extends RecyclerView.Adapter<AdaptadorServicio.DS
             public void onServiceClick(View v, int pos) {
                 CheckBox cb = (CheckBox) v;
                 if(cb.isChecked()){
-                    System.out.println("AÑADI ALGO");
+                    System.out.println("AÑADI ALGOdon");
                     checkedServices.add(servicios.get(pos));
                 }else if(!cb.isChecked()){
                     checkedServices.remove(servicios.get(pos));
