@@ -6,4 +6,5 @@
     <color name="colorIcons">#ffffff</color>
     <color name="colorWhiteTransparent">#80FFFFFF</color>
     <color name="colorBlackText">#000</color>
+    <color name="colorGrayBlack">#555</color>
 </resources>
