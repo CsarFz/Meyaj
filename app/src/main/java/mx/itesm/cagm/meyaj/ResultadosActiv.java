@@ -82,7 +82,7 @@ public class ResultadosActiv extends AppCompatActivity {
                         //Captura calificaciones
                         datosProf[4] = String.valueOf(snapshot.child(FBReferences.CALIFICACIONES_REF).getValue(Integer.class));
                         //Captura Direccion
-                        datosProf[5] = "Monte alegría";
+                        datosProf[5] = (String) snapshot.child(FBReferences.DIRECCION_REF).child("Colonia").getValue();
                         datosProf[6] = String.valueOf(snapshot.getKey());
                         profesionistas.add(datosProf);
                         System.out.println(profesionistas.toString());
@@ -102,5 +102,8 @@ public class ResultadosActiv extends AppCompatActivity {
         });
 
     }
+
+
+
 
 }
