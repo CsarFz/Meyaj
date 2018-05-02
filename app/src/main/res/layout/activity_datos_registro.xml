@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhiteTransparent"
+    android:orientation="vertical"
+    tools:context=".DatosRegistroActiv">
+
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="121dp"
+        android:layout_height="111dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/profile" />
+
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/etNombreCP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="196dp"
+        android:alpha="1"
+        android:hint="Nombre(s)"
+        android:inputType="textPersonName"
+        android:textColor="#555555" />
+
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/etApellidosCP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etNombreCP"
+        android:layout_centerHorizontal="true"
+        android:hint="Apellidos"
+        android:inputType="textPersonName"
+        android:textColor="#555555" />
+
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/etNumeroTelCP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etApellidosCP"
+        android:layout_centerHorizontal="true"
+        android:hint="Número de teléfono"
+        android:inputType="number"
+        android:textColor="#555555" />
+
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/etDireccion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etNumeroTelCP"
+        android:layout_centerHorizontal="true"
+        android:alpha="1"
+        android:hint="Dirección"
+        android:inputType="textPersonName"
+        android:textColor="#555555" />
+
+    <Button
+        android:id="@+id/btnGuardarPerfil"
+        style="@style/button_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etDireccion"
+        android:layout_centerHorizontal="true"
+        android:text="Guardar"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</RelativeLayout>

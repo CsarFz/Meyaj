@@ -5,6 +5,7 @@ public class UserInformation {
     public String nombre;
     public String apellido;
     public String numeroTelefono;
+    //public String direccion;
 
     public UserInformation(){
 
@@ -14,5 +15,6 @@ public class UserInformation {
         this.nombre = nombre;
         this.apellido = apellido;
         this.numeroTelefono = numeroTelefono;
+        //this.direccion = direccion;
     }
 }

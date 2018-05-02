@@ -22,7 +22,7 @@ public class ConfigurarActiv extends AppCompatActivity {
     private EditText etNombre;
     private EditText etApellidos;
     private EditText etNumeroTel;
-    private EditText etPassword;
+    //private EditText etPassword;
 
 
     private FirebaseAuth firebaseAuth;
@@ -42,13 +42,10 @@ public class ConfigurarActiv extends AppCompatActivity {
 
 
 
-
-
-
         etNombre = findViewById(R.id.etNombreCP);
         etApellidos = findViewById(R.id.etApellidosCP);
         etNumeroTel = findViewById(R.id.etNumeroTelCP);
-        etPassword = findViewById(R.id.etPasswordCP);
+        //etPassword = findViewById(R.id.etPasswordCP);
 
 
         btnGuardarPerfil = findViewById(R.id.btnGuardarPerfil);

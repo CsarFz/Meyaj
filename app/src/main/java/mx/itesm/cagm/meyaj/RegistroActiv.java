@@ -1,6 +1,7 @@
 package mx.itesm.cagm.meyaj;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,6 +22,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistroActiv extends AppCompatActivity {
 
@@ -34,6 +37,9 @@ public class RegistroActiv extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private FirebaseAuth firebaseAuth;
 
+    private DatabaseReference db;
+    //private UserInformation usuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +47,7 @@ public class RegistroActiv extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        db = FirebaseDatabase.getInstance().getReference();
 
         progressDialog = new ProgressDialog(this, R.style.MyAlertDialogStyle);
 
@@ -106,12 +113,16 @@ public class RegistroActiv extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+
                             //El usuario esta registrado exitosamente, vamos a abrir la actividad para llena rel perfil
                             Toast.makeText(RegistroActiv.this,"Usuario registrado.", Toast.LENGTH_SHORT).show();
                             try {
                                 Toast.makeText(getApplicationContext(),"Usuario Registrado.",Toast.LENGTH_SHORT).show();
                                 Thread.sleep(3000);
-                                RegistroActiv.super.onBackPressed();
+                                //RegistroActiv.super.onBackPressed();
+                                Intent intent = new Intent(RegistroActiv.this, DatosRegistroActiv.class);
+                                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                                startActivity(intent);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
