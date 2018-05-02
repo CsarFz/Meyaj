@@ -77,6 +77,8 @@ public class DatosRegistroActiv extends AppCompatActivity
         databaseReference.child(user.getUid()).setValue(userInformation);
 
         Toast.makeText(this,"Guardando informacion....", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(DatosRegistroActiv.this, MenuPrincipalActiv.class);
+        startActivity(intent);
 
     }
 }
