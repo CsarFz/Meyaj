@@ -42,7 +42,7 @@ public class RegistroActiv extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
 
-        progressDialog = new ProgressDialog(this);
+        progressDialog = new ProgressDialog(this, R.style.MyAlertDialogStyle);
 
 
 
