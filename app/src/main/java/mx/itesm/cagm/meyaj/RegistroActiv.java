@@ -95,6 +95,8 @@ public class RegistroActiv extends AppCompatActivity {
 
 
         progressDialog.setMessage("Registrando usuario...");
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
 
 
