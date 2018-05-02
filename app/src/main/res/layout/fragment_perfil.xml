@@ -49,10 +49,12 @@
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_weight="1"
+        android:alpha="1"
         android:ems="10"
         android:hint="@string/str_correoElectronico"
         android:inputType="textEmailAddress"
         android:textColor="#555555"
+        android:textColorLink="#555555"
         android:textSize="16sp" />
 
     <Button
