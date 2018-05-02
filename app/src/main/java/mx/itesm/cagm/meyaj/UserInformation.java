@@ -5,16 +5,16 @@ public class UserInformation {
     public String nombre;
     public String apellido;
     public String numeroTelefono;
-    //public String direccion;
+    public String direccion;
 
     public UserInformation(){
 
     }
 
-    public UserInformation(String nombre, String apellido, String numeroTelefono) {
+    public UserInformation(String nombre, String apellido, String numeroTelefono, String direccion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.numeroTelefono = numeroTelefono;
-        //this.direccion = direccion;
+        this.direccion = direccion;
     }
 }

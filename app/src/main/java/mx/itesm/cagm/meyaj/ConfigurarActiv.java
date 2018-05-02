@@ -22,7 +22,7 @@ public class ConfigurarActiv extends AppCompatActivity {
     private EditText etNombre;
     private EditText etApellidos;
     private EditText etNumeroTel;
-    //private EditText etPassword;
+    private EditText etDireccion;
 
 
     private FirebaseAuth firebaseAuth;
@@ -34,18 +34,13 @@ public class ConfigurarActiv extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_configurar);
 
-
         firebaseAuth = FirebaseAuth.getInstance();
-
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
-
-
 
         etNombre = findViewById(R.id.etNombreCP);
         etApellidos = findViewById(R.id.etApellidosCP);
         etNumeroTel = findViewById(R.id.etNumeroTelCP);
-        //etPassword = findViewById(R.id.etPasswordCP);
+        etDireccion = findViewById(R.id.etDireccion);
 
 
         btnGuardarPerfil = findViewById(R.id.btnGuardarPerfil);
@@ -74,8 +69,9 @@ public class ConfigurarActiv extends AppCompatActivity {
         String nombre = etNombre.getText().toString().trim();
         String apellido = etApellidos.getText().toString().trim();
         String numTel = etNumeroTel.getText().toString().trim();
+        String direccion = etDireccion.getText().toString().trim();
 
-        UserInformation userInformation = new UserInformation(nombre,apellido,numTel);
+        UserInformation userInformation = new UserInformation(nombre,apellido,numTel,direccion);
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
 

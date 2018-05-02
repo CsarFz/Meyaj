@@ -119,10 +119,9 @@ public class RegistroActiv extends AppCompatActivity {
                             try {
                                 Toast.makeText(getApplicationContext(),"Usuario Registrado.",Toast.LENGTH_SHORT).show();
                                 Thread.sleep(3000);
-                                //RegistroActiv.super.onBackPressed();
-                                Intent intent = new Intent(RegistroActiv.this, DatosRegistroActiv.class);
-                                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
-                                startActivity(intent);
+                                Intent intentD = new Intent(RegistroActiv.this, DatosRegistroActiv.class);
+                                progressDialog.cancel();
+                                startActivity(intentD);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
