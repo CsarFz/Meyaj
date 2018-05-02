@@ -117,6 +117,7 @@ public class RegistroActiv extends AppCompatActivity {
                             }
 
                         }else{
+                            progressDialog.cancel();
                             Toast.makeText(RegistroActiv.this,"No se pudo registrar, intenta de nuevo.", Toast.LENGTH_SHORT).show();
                         }
                     }
