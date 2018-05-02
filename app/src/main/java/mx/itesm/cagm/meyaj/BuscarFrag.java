@@ -60,7 +60,7 @@ public class BuscarFrag extends Fragment
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ResultadosActiv.class);
-                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                intent.putExtra("ServiceType", "Carpintero");
                 startActivity(intent);
             }
         });
@@ -68,7 +68,7 @@ public class BuscarFrag extends Fragment
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ResultadosActiv.class);
-                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                intent.putExtra("ServiceType", "Electricista");
                 startActivity(intent);
             }
         });
@@ -76,7 +76,7 @@ public class BuscarFrag extends Fragment
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ResultadosActiv.class);
-                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                intent.putExtra("ServiceType", "Plomero");
                 startActivity(intent);
             }
         });
@@ -84,7 +84,7 @@ public class BuscarFrag extends Fragment
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ResultadosActiv.class);
-                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                intent.putExtra("ServiceType", "Albanil");
                 startActivity(intent);
             }
         });
@@ -99,7 +99,7 @@ public class BuscarFrag extends Fragment
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ResultadosActiv.class);
-                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                intent.putExtra("ServiceType", "Tecnico");
                 startActivity(intent);
             }
         });
@@ -107,7 +107,7 @@ public class BuscarFrag extends Fragment
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ResultadosActiv.class);
-                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                intent.putExtra("ServiceType", "Taxista");
                 startActivity(intent);
             }
         });
@@ -115,7 +115,7 @@ public class BuscarFrag extends Fragment
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ResultadosActiv.class);
-                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                intent.putExtra("ServiceType", "Cerrajero");
                 startActivity(intent);
             }
         });
@@ -123,7 +123,7 @@ public class BuscarFrag extends Fragment
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ResultadosActiv.class);
-                //intent.putExtra("ServiceType", searchService.getItemAtPosition(i).toString());
+                intent.putExtra("ServiceType", "Mecanico");
                 startActivity(intent);
             }
         });

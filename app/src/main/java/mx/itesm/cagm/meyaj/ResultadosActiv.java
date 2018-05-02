@@ -25,6 +25,7 @@ public class ResultadosActiv extends AppCompatActivity {
 
     List<String[]> profesionistas;
     int[] imgProfesionistas;
+    String serviceType;
 
     String[] datosProf;
 
@@ -37,7 +38,10 @@ public class ResultadosActiv extends AppCompatActivity {
 
         rv = (RecyclerView) findViewById(R.id.rvProfesionistas);
         rv.setLayoutManager(new LinearLayoutManager(this));
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
 
+        serviceType = (String) bundle.get("ServiceType");
         profesionistas = new ArrayList<>();
         datosProf = new String[7];
         imgProfesionistas = new int[]{R.drawable.carpintero, R.drawable.electricista, R.drawable.plomero, R.drawable.mecanico, R.drawable.taxi};
@@ -49,7 +53,7 @@ public class ResultadosActiv extends AppCompatActivity {
         adaptador = new Adaptador(profesionistas,imgProfesionistas);
         rv.setAdapter(adaptador);
 
-        final String pSolicitada = "Electricista";
+
 
         adaptador.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,22 +75,25 @@ public class ResultadosActiv extends AppCompatActivity {
                         dataSnapshot.getChildren()) {
 
                     String prof = snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);
-                    if(prof.equals(pSolicitada)) {
-                        datosProf[0] = snapshot.child(FBReferences.NOMBRE_REF).getValue(String.class) + " " + snapshot.child(FBReferences.APELLIDO_REF).getValue(String.class);
-                        //Captura de Profesion
-                        datosProf[1] = snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);
-                        //Captura distancia PENDIENTE
-                        datosProf[2] = "1.2";
-                        //Captura calificacion
-                        datosProf[3] = String.valueOf(snapshot.child(FBReferences.CALIFICACION_REF).getValue(Integer.class));
-                        //Captura calificaciones
-                        datosProf[4] = String.valueOf(snapshot.child(FBReferences.CALIFICACIONES_REF).getValue(Integer.class));
-                        //Captura Direccion
-                        datosProf[5] = (String) snapshot.child(FBReferences.DIRECCION_REF).child("Colonia").getValue();
-                        datosProf[6] = String.valueOf(snapshot.getKey());
-                        profesionistas.add(datosProf);
-                        System.out.println(profesionistas.toString());
-                        datosProf = new String[7];
+                    if(!serviceType.equals("")){
+                        System.out.println("Service Type = "+serviceType);
+                        if(prof.equals(serviceType)) {
+                            datosProf[0] = snapshot.child(FBReferences.NOMBRE_REF).getValue(String.class) + " " + snapshot.child(FBReferences.APELLIDO_REF).getValue(String.class);
+                            //Captura de Profesion
+                            datosProf[1] = snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);
+                            //Captura distancia PENDIENTE
+                            datosProf[2] = "1.2";
+                            //Captura calificacion
+                            datosProf[3] = String.valueOf(snapshot.child(FBReferences.CALIFICACION_REF).getValue(Integer.class));
+                            //Captura calificaciones
+                            datosProf[4] = String.valueOf(snapshot.child(FBReferences.CALIFICACIONES_REF).getValue(Integer.class));
+                            //Captura Direccion
+                            datosProf[5] = (String) snapshot.child(FBReferences.DIRECCION_REF).child("Colonia").getValue();
+                            datosProf[6] = String.valueOf(snapshot.getKey());
+                            profesionistas.add(datosProf);
+                            System.out.println(profesionistas.toString());
+                            datosProf = new String[7];
+                        }
                     }
                 }
 

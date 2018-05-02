@@ -28,7 +28,8 @@
         <activity android:name=".DetalleProfesionistaActiv" />
         <activity android:name=".WelcomeActiv" />
         <activity android:name=".DatosRegistroActiv" />
-        <activity android:name=".DatosRegistroProfesionista"></activity>
+        <activity android:name=".DatosRegistroProfesionista"/>
+        <activity android:name=".CitaActiv"></activity>
     </application>
 
 </manifest>
