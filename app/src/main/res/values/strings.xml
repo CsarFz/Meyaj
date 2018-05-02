@@ -35,6 +35,8 @@
     <string name="strRegistrar">Registrar</string>
     <string name="strUsuario">Usuario:</string>
     <string name="strApellido">Apellido</string>
+    <string name="Contraseña">str_contraseña</string>
+    <string name="str_contraseña">Contraseña</string>
 
     <string-array name="my_services">
         <item>Taxi</item>
