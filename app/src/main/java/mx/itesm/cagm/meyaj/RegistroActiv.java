@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -40,6 +41,9 @@ public class RegistroActiv extends AppCompatActivity {
     private DatabaseReference db;
     //private UserInformation usuario;
 
+    private CheckBox cbProfesionista;
+    private boolean esProfesionista = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +55,7 @@ public class RegistroActiv extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this, R.style.MyAlertDialogStyle);
 
-
-
+        cbProfesionista = findViewById(R.id.cbProfesionista);
 
         setContentView(R.layout.activity_registro);
         etCorreo = findViewById(R.id.etCorreo);
@@ -86,9 +89,7 @@ public class RegistroActiv extends AppCompatActivity {
         String correo = etCorreo.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
-
         //Comprobar que los campos esten llenos
-
         if(TextUtils.isEmpty(correo)){
             Toast.makeText(getApplicationContext(), "El campo Correo debe estar lleno", Toast.LENGTH_SHORT).show();
             return;
@@ -99,14 +100,10 @@ public class RegistroActiv extends AppCompatActivity {
             return;
         }
 
-
-
         progressDialog.setMessage("Registrando usuario...");
         progressDialog.setIndeterminate(true);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
-
-
 
         firebaseAuth.createUserWithEmailAndPassword(correo,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -114,13 +111,20 @@ public class RegistroActiv extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             //El usuario esta registrado exitosamente, vamos a abrir la actividad para llena rel perfil
-                            //Toast.makeText(RegistroActiv.this,"Usuario registrado.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistroActiv.this,"Usuario registrado.", Toast.LENGTH_SHORT).show();
                             try {
                                 Toast.makeText(getApplicationContext(),"Usuario Registrado.",Toast.LENGTH_SHORT).show();
                                 Thread.sleep(3000);
-                                Intent intentD = new Intent(RegistroActiv.this, DatosRegistroActiv.class);
-                                //progressDialog.cancel();
-                                startActivity(intentD);
+
+                                if(esProfesionista){
+                                    Intent intentD = new Intent(RegistroActiv.this, DatosRegistroProfesionista.class);
+                                    progressDialog.cancel();
+                                    startActivity(intentD);
+                                } else {
+                                    Intent intentD = new Intent(RegistroActiv.this, DatosRegistroActiv.class);
+                                    progressDialog.cancel();
+                                    startActivity(intentD);
+                                }
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
@@ -133,6 +137,19 @@ public class RegistroActiv extends AppCompatActivity {
                 });
     }
 
+
+    public void onCheckboxClicked(View view) {
+        boolean checked = ((CheckBox) view).isChecked();
+        switch(view.getId()) {
+            case R.id.cbProfesionista:
+                if (checked) {
+                    esProfesionista = true;
+                } else{
+                    esProfesionista = false;
+                }
+                break;
+        }
+    }
 
 }
 

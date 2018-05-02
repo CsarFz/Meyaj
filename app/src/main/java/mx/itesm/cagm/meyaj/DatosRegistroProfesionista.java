@@ -13,13 +13,14 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class DatosRegistroActiv extends AppCompatActivity
+public class DatosRegistroProfesionista extends AppCompatActivity
 {
     private Button btnGuardarPerfil;
     private EditText etNombre;
     private EditText etApellidos;
     private EditText etNumeroTel;
     private EditText etDireccion;
+    private EditText etProfesion;
 
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
@@ -28,7 +29,7 @@ public class DatosRegistroActiv extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_datos_registro);
+        setContentView(R.layout.activity_datos_registro_profesionista);
 
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -37,7 +38,8 @@ public class DatosRegistroActiv extends AppCompatActivity
         etNombre = findViewById(R.id.etNombreCP);
         etApellidos = findViewById(R.id.etApellidosCP);
         etNumeroTel = findViewById(R.id.etNumeroTelCP);
-        etDireccion = findViewById(R.id.etProfesion);
+        etDireccion = findViewById(R.id.etDireccion);
+        etProfesion = findViewById(R.id.etProfesion);
 
 
         btnGuardarPerfil = findViewById(R.id.btnGuardarPerfil);
@@ -49,17 +51,6 @@ public class DatosRegistroActiv extends AppCompatActivity
             }
         });
 
-        /*
-        btnCerrarSesion = findViewById(R.id.btnCerrarSesionP);
-        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                firebaseAuth.signOut();
-                finish();
-                startActivity(new Intent(getApplicationContext(), MenuPrincipalActiv.class));
-            }
-        });
-        */
 
     }
 
@@ -68,16 +59,16 @@ public class DatosRegistroActiv extends AppCompatActivity
         String apellido = etApellidos.getText().toString().trim();
         String numTel = etNumeroTel.getText().toString().trim();
         String direccion = etDireccion.getText().toString().trim();
+        String profesion = etProfesion.getText().toString().trim();
 
-        UserInformation userInformation = new UserInformation(nombre,apellido,numTel,direccion);
+
+        Profesionista profesionista = new Profesionista(nombre,apellido,numTel,direccion,profesion);
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
-
-        databaseReference.child(user.getUid()).setValue(userInformation);
+        databaseReference.child(user.getUid()).setValue(profesionista);
 
         Toast.makeText(this,"Guardando informacion....", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(DatosRegistroActiv.this, MenuPrincipalActiv.class);
+        Intent intent = new Intent(DatosRegistroProfesionista.this, MenuPrincipalActiv.class);
         startActivity(intent);
-
     }
 }

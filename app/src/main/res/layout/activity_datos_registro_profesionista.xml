@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhiteTransparent"
     android:orientation="vertical"
-    tools:context="mx.itesm.cagm.meyaj.DatosRegistroActiv">
+    tools:context="mx.itesm.cagm.meyaj.DatosRegistroProfesionista">
 
 
     <ImageButton
@@ -57,6 +57,17 @@
 
     <android.support.design.widget.TextInputEditText
         android:id="@+id/etProfesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etDireccion"
+        android:alpha="1"
+        android:hint="Profesión"
+        android:inputType="textPersonName"
+        android:textColor="#555555" />
+
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/etDireccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etNumeroTelCP"

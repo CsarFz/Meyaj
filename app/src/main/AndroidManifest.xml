@@ -27,7 +27,8 @@
         <activity android:name=".ResultadosActiv" />
         <activity android:name=".DetalleProfesionistaActiv" />
         <activity android:name=".WelcomeActiv" />
-        <activity android:name=".DatosRegistroActiv"></activity>
+        <activity android:name=".DatosRegistroActiv" />
+        <activity android:name=".DatosRegistroProfesionista"></activity>
     </application>
 
 </manifest>
