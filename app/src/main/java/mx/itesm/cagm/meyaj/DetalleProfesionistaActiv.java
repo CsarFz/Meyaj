@@ -11,9 +11,16 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class DetalleProfesionistaActiv extends AppCompatActivity {
 
@@ -21,6 +28,9 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
     String nombre,profesion,direccion,llave;
     StringBuffer sb=null;
     AdaptadorServicio adaptadorServicio;
+
+    ArrayList<Servicio> servicios;
+    Servicio s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +42,13 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
         profesion = (String) bundle.get("PROFESSION");
         direccion = (String) bundle.get("ADDRESS");
         llave = (String) bundle.get("KEY");
+        servicios = new ArrayList<>();
 
         tvN = findViewById(R.id.tvNombre);
         tvD = findViewById(R.id.tvDireccion);
         tvP = findViewById(R.id.tvProfesion);
         Button solicitar = findViewById(R.id.btnSolicitar);
 
-        adaptadorServicio = new AdaptadorServicio(this,getServicios());
         tvN.setText(nombre);
         tvP.setText(profesion);
         tvD.setText(direccion);
@@ -69,12 +79,38 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setItemAnimator(new DefaultItemAnimator());
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference ref = database.getReference(FBReferences.PROFESIONISTAS_REF);
+        servicios = new ArrayList<>();
+
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                servicios.clear();
+                for (DataSnapshot snapshot: dataSnapshot.child(llave).child(FBReferences.SERVICIOS_REF).getChildren()) {
+                    System.out.println(snapshot.getValue());
+                    String titulo = snapshot.child("Titulo").getValue(String.class);
+                    String descripcion = snapshot.child("Descripcion").getValue(String.class);
+                    String precio = snapshot.child("Precio").getValue(String.class);
+                    String duracion = snapshot.child("Duracion").getValue(String.class);
+                    s = new Servicio(titulo,precio,descripcion,duracion);
+                    servicios.add(s);
+                    System.out.println("AÑADI:"+ s.toString());
+                }
+                adaptadorServicio.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Caduco");
+            }
+        });
+
+        adaptadorServicio = new AdaptadorServicio(servicios);
+
         rv.setAdapter(adaptadorServicio);
-
-
-
     }
-
+/*
     private ArrayList<Servicio> getServicios() {
         ArrayList<Servicio> servicios = new ArrayList<>();
         Servicio s = new Servicio("Limpieza" ,"25","Jamon","2");
@@ -90,4 +126,5 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
         return servicios;
 
     }
+*/
 }

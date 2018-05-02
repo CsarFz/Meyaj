@@ -14,12 +14,10 @@ public class AdaptadorServicio extends RecyclerView.Adapter<AdaptadorServicio.DS
 
     ArrayList<Servicio> servicios;
     ArrayList<Servicio> checkedServices= new ArrayList<>();
-    Context c;
-    private View.OnClickListener listener;
 
-    public AdaptadorServicio(Context c, ArrayList<Servicio> servicios) {
+    public AdaptadorServicio(ArrayList<Servicio> servicios) {
         this.servicios = servicios;
-        this.c=c;
+
     }
 
     @Override
@@ -41,7 +39,6 @@ public class AdaptadorServicio extends RecyclerView.Adapter<AdaptadorServicio.DS
             public void onServiceClick(View v, int pos) {
                 CheckBox cb = (CheckBox) v;
                 if(cb.isChecked()){
-                    System.out.println("AÑADI ALGOdon");
                     checkedServices.add(servicios.get(pos));
                 }else if(!cb.isChecked()){
                     checkedServices.remove(servicios.get(pos));

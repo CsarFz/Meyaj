@@ -103,11 +103,4 @@ public class ResultadosActiv extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
-
-
 }
