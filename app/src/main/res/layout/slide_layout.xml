@@ -40,6 +40,6 @@
         android:padding="35dp"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus hendrerit auctor. Nullam quis pharetra arcu."
         android:textAlignment="center"
-        android:textColor="@color/colorWhiteTransparent"
-        android:textSize="16sp" />
+        android:textColor="@color/colorIcons"
+        android:textSize="18sp" />
 </RelativeLayout>

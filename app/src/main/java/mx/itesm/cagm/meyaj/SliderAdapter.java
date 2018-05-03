@@ -33,9 +33,9 @@ public class SliderAdapter extends PagerAdapter {
     };
 
     public String[] slide_desc = {
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus hendrerit auctor. Nullam quis pharetra arcu.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus hendrerit auctor. Nullam quis pharetra arcu.",
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus hendrerit auctor. Nullam quis pharetra arcu."
+        "Busca un servicio que necesites en nuestra aplicación MEYAJ. Te facilitará en encontrar el servicio que solicites.",
+        "El servicio que necistes estará a tu alcance con un sólo clic.",
+        "Si quieres anunciarte, registrate como profesionista para dar un servicio adecuado."
     };
 
     @Override
