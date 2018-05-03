@@ -33,8 +33,10 @@
         android:alpha="1"
         android:hint="Nombre(s)"
         android:inputType="textPersonName"
-        android:textColor="#555555"
+        android:textColor="@color/colorGrayBlack"
         android:backgroundTint="@color/colorGrayBlack"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textCursorDrawable="@null"
         />
 
     <android.support.design.widget.TextInputEditText
@@ -45,8 +47,10 @@
         android:layout_centerHorizontal="true"
         android:hint="Apellidos"
         android:inputType="textPersonName"
-        android:textColor="#555555"
+        android:textColor="@color/colorGrayBlack"
         android:backgroundTint="@color/colorGrayBlack"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textCursorDrawable="@null"
         />
 
     <android.support.design.widget.TextInputEditText
@@ -57,8 +61,10 @@
         android:layout_centerHorizontal="true"
         android:hint="Número de teléfono"
         android:inputType="number"
-        android:textColor="#555555"
+        android:textColor="@color/colorGrayBlack"
         android:backgroundTint="@color/colorGrayBlack"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textCursorDrawable="@null"
         />
 
     <android.support.design.widget.TextInputEditText
@@ -70,8 +76,10 @@
         android:alpha="1"
         android:hint="Profesión"
         android:inputType="textPersonName"
-        android:textColor="#555555"
+        android:textColor="@color/colorGrayBlack"
         android:backgroundTint="@color/colorGrayBlack"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textCursorDrawable="@null"
         />
 
     <android.support.design.widget.TextInputEditText
@@ -83,8 +91,10 @@
         android:alpha="1"
         android:hint="Dirección"
         android:inputType="textPersonName"
-        android:textColor="#555555"
+        android:textColor="@color/colorGrayBlack"
         android:backgroundTint="@color/colorGrayBlack"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textCursorDrawable="@null"
         />
 
     <Button

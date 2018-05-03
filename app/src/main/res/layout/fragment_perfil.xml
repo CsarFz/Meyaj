@@ -42,6 +42,8 @@
         android:textColor="#555555"
         android:textSize="16sp"
         android:backgroundTint="@color/colorGrayBlack"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textCursorDrawable="@null"
         />
 
     <EditText
@@ -52,14 +54,15 @@
         android:layout_centerVertical="true"
         android:layout_weight="1"
         android:alpha="1"
+        android:backgroundTint="@color/colorGrayBlack"
         android:ems="10"
         android:hint="@string/str_correoElectronico"
         android:inputType="textEmailAddress"
         android:textColor="#555555"
+        android:textColorHighlight="@color/colorPrimary"
         android:textColorLink="#555555"
-        android:textSize="16sp"
-        android:backgroundTint="@color/colorGrayBlack"
-        />
+        android:textCursorDrawable="@color/colorPrimaryDark"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/btnIngresar"
