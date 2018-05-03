@@ -29,7 +29,7 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
         setContentView(R.layout.activity_cita);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        servicios = (ArrayList<Servicio>) bundle.get("SelectedServices");
+       // servicios = (ArrayList<Servicio>) bundle.get("SelectedServices");
         Button btnDate = (Button) findViewById(R.id.btnFecha);
         Button btnHour = (Button) findViewById(R.id.btnHora);
         RecyclerView rv = findViewById(R.id.rvRServicios);

@@ -66,7 +66,7 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
                 System.out.println("TAMAÑO: "+adaptadorServicio.checkedServices.size());
                 if (adaptadorServicio.checkedServices.size()>0){
                     Intent intent = new Intent(DetalleProfesionistaActiv.this, CitaActiv.class);
-                    intent.putExtra("SelectedServices",adaptadorServicio.servicios);
+                    //intent.putExtra("SelectedServices",adaptadorServicio.servicios);
                     //System.out.println("Total es: "+ getSum(adaptadorServicio.totalus));
                     startActivity(intent);
 
