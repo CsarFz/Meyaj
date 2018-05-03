@@ -20,7 +20,7 @@ public class FechaFragment extends DialogFragment implements DatePickerDialog.On
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
 
-        Button button;
+        Button btnDate;
 
         return new DatePickerDialog(getActivity(), (DatePickerDialog.OnDateSetListener) getActivity(), year,month,day);
     }
