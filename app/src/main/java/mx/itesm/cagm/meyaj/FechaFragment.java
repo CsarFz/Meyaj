@@ -5,12 +5,10 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
-import android.widget.Button;
-import android.widget.DatePicker;
 
 import java.util.Calendar;
 
-public class FechaFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
+public class FechaFragment extends DialogFragment{
 
     @NonNull
     @Override
@@ -20,13 +18,8 @@ public class FechaFragment extends DialogFragment implements DatePickerDialog.On
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
 
-        Button btnDate;
 
-        return new DatePickerDialog(getActivity(), (DatePickerDialog.OnDateSetListener) getActivity(), year,month,day);
+        return new DatePickerDialog(getActivity(),R.style.Theme_AppCompat_DayNight_Dialog_MinWidth,(DatePickerDialog.OnDateSetListener) getActivity(), year,month,day);
     }
 
-    @Override
-    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-
-    }
 }

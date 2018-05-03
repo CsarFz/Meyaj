@@ -66,6 +66,7 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
                 System.out.println("TAMAÑO: "+adaptadorServicio.checkedServices.size());
                 if (adaptadorServicio.checkedServices.size()>0){
                     Intent intent = new Intent(DetalleProfesionistaActiv.this, CitaActiv.class);
+                    startActivity(intent);
 
                 }else{
                     Toast.makeText(DetalleProfesionistaActiv.this,"Nada en lista",Toast.LENGTH_SHORT).show();
