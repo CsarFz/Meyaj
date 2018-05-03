@@ -40,7 +40,9 @@
         android:hint="@string/str_contrasena"
         android:inputType="textPassword"
         android:textColor="#555555"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:backgroundTint="@color/colorGrayBlack"
+        />
 
     <EditText
         android:id="@+id/etCorreoI"
@@ -55,7 +57,9 @@
         android:inputType="textEmailAddress"
         android:textColor="#555555"
         android:textColorLink="#555555"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:backgroundTint="@color/colorGrayBlack"
+        />
 
     <Button
         android:id="@+id/btnIngresar"
