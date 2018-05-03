@@ -14,6 +14,8 @@ public class AdaptadorServicio extends RecyclerView.Adapter<AdaptadorServicio.DS
 
     ArrayList<Servicio> servicios;
     ArrayList<Servicio> checkedServices= new ArrayList<>();
+    ArrayList<Integer> totalus= new ArrayList<>();
+    int total = 0;
 
     public AdaptadorServicio(ArrayList<Servicio> servicios) {
         this.servicios = servicios;
@@ -40,8 +42,12 @@ public class AdaptadorServicio extends RecyclerView.Adapter<AdaptadorServicio.DS
                 CheckBox cb = (CheckBox) v;
                 if(cb.isChecked()){
                     checkedServices.add(servicios.get(pos));
+                    totalus.add(Integer.valueOf(servicios.get(pos).getPrecio()));
+                    System.out.println("VA = "+Integer.valueOf(servicios.get(pos).getPrecio()));
                 }else if(!cb.isChecked()){
                     checkedServices.remove(servicios.get(pos));
+                    totalus.remove(Integer.valueOf(servicios.get(pos).getPrecio()));
+                    System.out.println("VA = "+total);
                 }
             }
         });
@@ -51,6 +57,9 @@ public class AdaptadorServicio extends RecyclerView.Adapter<AdaptadorServicio.DS
     public int getItemCount() {
         return servicios.size();
     }
+
+
+    public int getTotal(){ return total; }
 
 
     public static class DSViewHOlder extends RecyclerView.ViewHolder implements View.OnClickListener{

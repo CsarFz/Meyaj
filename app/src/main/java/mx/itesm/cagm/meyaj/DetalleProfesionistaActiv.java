@@ -66,10 +66,12 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
                 System.out.println("TAMAÑO: "+adaptadorServicio.checkedServices.size());
                 if (adaptadorServicio.checkedServices.size()>0){
                     Intent intent = new Intent(DetalleProfesionistaActiv.this, CitaActiv.class);
+                    intent.putExtra("SelectedServices",adaptadorServicio.servicios);
+                    //System.out.println("Total es: "+ getSum(adaptadorServicio.totalus));
                     startActivity(intent);
 
                 }else{
-                    Toast.makeText(DetalleProfesionistaActiv.this,"Nada en lista",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DetalleProfesionistaActiv.this,"Seleccione al menos 1 servicio",Toast.LENGTH_LONG).show();
 
                 }
 
@@ -111,21 +113,12 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
 
         rv.setAdapter(adaptadorServicio);
     }
-/*
-    private ArrayList<Servicio> getServicios() {
-        ArrayList<Servicio> servicios = new ArrayList<>();
-        Servicio s = new Servicio("Limpieza" ,"25","Jamon","2");
-        servicios.add(s);
-        s = new Servicio("Limpieza" ,"25","Jamon","2");
-        servicios.add(s);
-        s = new Servicio("Limpieza" ,"25","Jamon","2");
-        servicios.add(s);
-        s = new Servicio("Limpieza" ,"25","Jamon","2");
-        servicios.add(s);
-        s = new Servicio("Limpieza" ,"25","Jamon","2");
-        servicios.add(s);
-        return servicios;
 
+    private int getSum(ArrayList<Integer> totalus) {
+        int total=0;
+        for(int i=0; i<totalus.size();i++){
+            total+=totalus.get(i);
+        }
+        return total;
     }
-*/
 }

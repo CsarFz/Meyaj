@@ -18,7 +18,6 @@ public class FechaFragment extends DialogFragment{
         int month = c.get(Calendar.MONTH);
         int day = c.get(Calendar.DAY_OF_MONTH);
 
-
         return new DatePickerDialog(getActivity(),R.style.Theme_AppCompat_DayNight_Dialog_MinWidth,(DatePickerDialog.OnDateSetListener) getActivity(), year,month,day);
     }
 
