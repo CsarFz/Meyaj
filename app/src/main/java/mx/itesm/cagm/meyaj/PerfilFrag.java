@@ -48,6 +48,7 @@ public class PerfilFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.fragment_perfil, container, false);
+        //View viewPerfil = inflater.inflate(R.layout.fragment_info_perfil, container, false);
 
 
 
@@ -108,10 +109,9 @@ public class PerfilFrag extends Fragment {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressDialog.dismiss();
-
                                 if(task.isSuccessful()){
                                     // Iniciar la actividad del perfil
-                                    startActivity( new Intent(getContext(), ConfigurarActiv.class));
+                                    startActivity( new Intent(getContext(), MenuPrincipalActiv.class));
                                 }else{
                                     Toast.makeText(getContext(),"Usuario o contraseña inválidos.", Toast.LENGTH_SHORT).show();
                                 }
@@ -120,23 +120,8 @@ public class PerfilFrag extends Fragment {
             }
         });
 
-
         // Inflate the layout for this fragment
         return myView;
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
 }

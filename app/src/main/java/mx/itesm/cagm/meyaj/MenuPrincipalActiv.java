@@ -32,6 +32,7 @@ public class MenuPrincipalActiv extends AppCompatActivity {
                     break;
 
                 case R.id.navPerfil:
+
                     fragment = new PerfilFrag();
                     break;
             }
@@ -54,41 +55,6 @@ public class MenuPrincipalActiv extends AppCompatActivity {
         Log.i("CicloVida", "OnCreate");
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.i("CicloVida","onStart");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i("CicloVida","onResume");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.i("CicloVida","onRestart");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i("CicloVida","onPause");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.i("CicloVida","onStop");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.i("CicloVida","onDestroy");
-    }
 
     private boolean loadFragment(Fragment fragment) {
         if(fragment != null) {

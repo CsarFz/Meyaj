@@ -50,8 +50,6 @@ public class DatosRegistroProfesionista extends AppCompatActivity
 
             }
         });
-
-
     }
 
     private void guardarInformacion(){
