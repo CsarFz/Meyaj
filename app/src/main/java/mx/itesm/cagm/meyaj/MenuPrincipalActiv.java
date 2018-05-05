@@ -10,9 +10,14 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-public class MenuPrincipalActiv extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+public class MenuPrincipalActiv extends AppCompatActivity
+{
 
     private BottomNavigationView mainNav;
+    private FirebaseAuth firebaseAuth;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -32,8 +37,13 @@ public class MenuPrincipalActiv extends AppCompatActivity {
                     break;
 
                 case R.id.navPerfil:
-
-                    fragment = new PerfilFrag();
+                    firebaseAuth = FirebaseAuth.getInstance();
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+                    if(user != null){
+                        fragment = new InfoPerfilFrag();
+                    } else {
+                        fragment = new PerfilFrag();
+                    }
                     break;
             }
             return loadFragment(fragment);

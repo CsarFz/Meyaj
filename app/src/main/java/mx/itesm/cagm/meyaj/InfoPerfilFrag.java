@@ -38,6 +38,8 @@ public class InfoPerfilFrag extends Fragment
     private TextView tvNombre;
     private TextView tvTelefono;
 
+    private Button btnConfigurar;
+
 
     public InfoPerfilFrag() {
         // Required empty public constructor
@@ -51,7 +53,14 @@ public class InfoPerfilFrag extends Fragment
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        db.child(user.getUid()).getKey();
+        btnConfigurar = myView.findViewById(R.id.btnConfig);
+        btnConfigurar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intConfig = new Intent(getActivity(), ConfigurarActiv.class);
+                startActivity(intConfig);
+            }
+        });
 
         // Inflate the layout for this fragment
         return myView;
