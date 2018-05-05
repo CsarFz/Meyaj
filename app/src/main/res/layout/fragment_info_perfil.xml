@@ -42,7 +42,8 @@
         android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:text="Poner nombre del usuario activo" />
 
     <TextView
         android:id="@+id/tvTelefonoLabel"
@@ -59,6 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvTelefonoLabel"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-227dp" />
+        android:layout_marginTop="-227dp"
+        android:text="Poner teléfono del usuario activo" />
 
 </RelativeLayout>

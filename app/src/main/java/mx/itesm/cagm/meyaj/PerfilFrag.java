@@ -48,8 +48,6 @@ public class PerfilFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View myView = inflater.inflate(R.layout.fragment_perfil, container, false);
-        //View viewPerfil = inflater.inflate(R.layout.fragment_info_perfil, container, false);
-
 
 
         progressDialog = new ProgressDialog(getContext(), R.style.MyAlertDialogStyle);
@@ -78,6 +76,7 @@ public class PerfilFrag extends Fragment {
 
         btnIniciarSesion = myView.findViewById(R.id.btnIngresar);
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 userLogin();
@@ -86,8 +85,6 @@ public class PerfilFrag extends Fragment {
             private void userLogin() {
                 String email = etCorreo.getText().toString().trim();
                 String password = etPassword.getText().toString().trim();
-
-
 
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(getContext(), "El campo  de correo debe estar lleno.", Toast.LENGTH_SHORT).show();
