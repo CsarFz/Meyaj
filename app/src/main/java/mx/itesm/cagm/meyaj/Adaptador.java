@@ -1,14 +1,9 @@
 package mx.itesm.cagm.meyaj;
 
-import android.content.Context;
-import android.content.Intent;
-import android.media.Image;
-import android.media.Rating;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -73,7 +68,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.PViewHOlder> imple
 
         public PViewHOlder(View itemView) {
             super(itemView);
-            nombre = itemView.findViewById(R.id.tvNombre);
+            nombre = itemView.findViewById(R.id.tvTelefono);
             profesion = itemView.findViewById(R.id.tvProfesion);
             distancia = itemView.findViewById(R.id.tvDistancia);
             votos = itemView.findViewById(R.id.tvVotos);

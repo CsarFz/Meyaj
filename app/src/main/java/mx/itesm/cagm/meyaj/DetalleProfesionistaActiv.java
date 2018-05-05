@@ -17,10 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class DetalleProfesionistaActiv extends AppCompatActivity {
 
@@ -44,7 +41,7 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
         llave = (String) bundle.get("KEY");
         servicios = new ArrayList<>();
 
-        tvN = findViewById(R.id.tvNombre);
+        tvN = findViewById(R.id.tvTelefono);
         tvD = findViewById(R.id.tvDireccion);
         tvP = findViewById(R.id.tvProfesion);
         Button solicitar = findViewById(R.id.btnSolicitar);

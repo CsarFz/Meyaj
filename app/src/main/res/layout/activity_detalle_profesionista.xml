@@ -7,7 +7,7 @@
     tools:context=".DetalleProfesionistaActiv">
 
     <TextView
-        android:id="@+id/tvNombre"
+        android:id="@+id/tvTelefono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -26,7 +26,7 @@
         android:layout_marginTop="8dp"
         android:text="Profesion"
         app:layout_constraintStart_toEndOf="@+id/ivProfesionista"
-        app:layout_constraintTop_toBottomOf="@+id/tvNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTelefono" />
 
     <TextView
         android:id="@+id/Address"
