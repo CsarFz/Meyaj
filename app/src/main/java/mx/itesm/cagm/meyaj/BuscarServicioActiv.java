@@ -20,6 +20,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,37 +36,38 @@ import javax.xml.transform.Result;
 
 public class BuscarServicioActiv extends AppCompatActivity {
 
-    ListView searchService;
+    //ListView searchService;
     ArrayAdapter<String> adapter;
 
-    /*EditText searchField;
-    RecyclerView resultList;
-    ImageButton btnSearch;
+    EditText etSearch;
+    RecyclerView rvServicesList;
     DatabaseReference dbReference;
+    FirebaseUser firebaseUser;
     ArrayList<String> nameService;
-    ArrayList<String> imgService;*/
+    ArrayList<String> imgService;
+    SearchAdapter searchAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buscar_servicio);
 
-        searchService = findViewById(R.id.search_service);
+        //searchService = findViewById(R.id.search_service);
 
-        /* // <----- César
-        searchField = findViewById(R.id.etSearch);
-        resultList = findViewById(R.id.rvListServices);
-        btnSearch = findViewById(R.id.btnSearch);
+        // <----- César
+        etSearch = findViewById(R.id.etSearch);
+        rvServicesList = findViewById(R.id.rvListServices);
         dbReference = FirebaseDatabase.getInstance().getReference();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        resultList.setHasFixedSize(true);
-        resultList.setLayoutManager(new LinearLayoutManager(this));
-        resultList.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        rvServicesList.setHasFixedSize(true);
+        rvServicesList.setLayoutManager(new LinearLayoutManager(this));
+        rvServicesList.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
 
         nameService = new ArrayList<>();
         imgService = new ArrayList<>();
 
-        searchField.addTextChangedListener(new TextWatcher() {
+        etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -79,6 +82,10 @@ public class BuscarServicioActiv extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
                 if (!s.toString().isEmpty()) {
                     setAdapter(s.toString());
+                } else {
+                    nameService.clear();
+                    imgService.clear();
+                    rvServicesList.removeAllViews();
                 }
             }
         });
@@ -87,7 +94,7 @@ public class BuscarServicioActiv extends AppCompatActivity {
         ArrayList<String> arrayService = new ArrayList<>();
         arrayService.addAll(Arrays.asList(getResources().getStringArray(R.array.my_services)));
 
-        adapter= new ArrayAdapter<String>(
+        /*adapter= new ArrayAdapter<String>(
                 BuscarServicioActiv.this,
                 android.R.layout.simple_list_item_1,
                 arrayService
@@ -104,25 +111,35 @@ public class BuscarServicioActiv extends AppCompatActivity {
         });
 
 
-        searchService.setAdapter(adapter);
+        searchService.setAdapter(adapter);*/
     }
-    /*
+
     private void setAdapter(final String searchedString) {
-        dbReference.child("services").addListenerForSingleValueEvent(new ValueEventListener() {
+        dbReference.child("Servicios").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                nameService.clear();
+                imgService.clear();
+                rvServicesList.removeAllViews();
+
                 int count = 0;
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
                     String sid = snapshot.getKey();
                     String name_service = snapshot.child("name").getValue(String.class);
                     String img_service = snapshot.child("image").getValue(String.class);
 
-                    if (name_service.contains(searchedString)) {
+                    if (name_service.toLowerCase().contains(searchedString.toLowerCase())) {
                         nameService.add(name_service);
                         imgService.add(img_service);
                         count++;
                     }
+
+                    if(count == 10)
+                        break;;
                 }
+
+                searchAdapter = new SearchAdapter(BuscarServicioActiv.this, nameService, imgService);
+                rvServicesList.setAdapter(searchAdapter);
             }
 
             @Override
@@ -130,9 +147,9 @@ public class BuscarServicioActiv extends AppCompatActivity {
 
             }
         });
-    }*/
+    }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.search_menu, menu);
@@ -155,6 +172,6 @@ public class BuscarServicioActiv extends AppCompatActivity {
             }
         });
         return super.onCreateOptionsMenu(menu);
-    }
+    }*/
 
 }

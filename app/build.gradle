@@ -42,7 +42,12 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-database:15.0.0'
 
+    implementation 'com.google.firebase:firebase-storage:15.0.0'
+
     implementation 'com.android.support:recyclerview-v7:27.1.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
 
     // FirebaseUI for Firebase Realtime Database
     implementation 'com.firebaseui:firebase-ui-database:3.3.1'

@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
@@ -48,6 +51,17 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     public void onBindViewHolder(@NonNull SearchViewHolder holder, int position) {
         holder.tvService.setText(nameServiceList.get(position));
 
+        Glide.with(context)
+                .asBitmap()
+                .load(imgServiceList.get(position))
+                .into(holder.imgService);
+
+        holder.tvService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "tvService Clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
