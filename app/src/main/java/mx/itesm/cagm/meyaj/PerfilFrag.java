@@ -87,15 +87,15 @@ public class PerfilFrag extends Fragment {
                 String password = etPassword.getText().toString().trim();
 
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(getContext(), "El campo  de correo debe estar lleno.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "El campo  de correo debe de estar lleno.", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if(TextUtils.isEmpty(password)){
-                    Toast.makeText(getContext(), "El campo de contraseña debe estar lleno", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "El campo de contraseña debe de estar lleno.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                progressDialog.setMessage("Ingresando...");
+                progressDialog.setMessage("Ingresando, por favor espere...");
                 progressDialog.setIndeterminate(true);
                 progressDialog.setCanceledOnTouchOutside(false);
                 progressDialog.show();

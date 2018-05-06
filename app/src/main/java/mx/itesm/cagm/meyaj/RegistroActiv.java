@@ -91,16 +91,16 @@ public class RegistroActiv extends AppCompatActivity {
 
         //Comprobar que los campos esten llenos
         if(TextUtils.isEmpty(correo)){
-            Toast.makeText(getApplicationContext(), "El campo Correo debe estar lleno", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "El campo  de correo debe de estar lleno.", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if(TextUtils.isEmpty(password)){
-            Toast.makeText(getApplicationContext(), "El campo Password debe estar lleno", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "El campo de contraseña debe de estar lleno.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        progressDialog.setMessage("Registrando usuario...");
+        progressDialog.setMessage("Registrando usuario, por favor espere...");
         progressDialog.setIndeterminate(true);
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
@@ -131,7 +131,7 @@ public class RegistroActiv extends AppCompatActivity {
 
                         }else{
                             progressDialog.cancel();
-                            Toast.makeText(RegistroActiv.this,"No se pudo registrar, intenta de nuevo.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistroActiv.this,"No se pudo registrar, intente de nuevo.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
