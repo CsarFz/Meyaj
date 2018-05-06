@@ -1,14 +1,22 @@
 package mx.itesm.cagm.meyaj;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -53,18 +61,25 @@ public class MenuPrincipalActiv extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_principal);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        if(!isConnected(MenuPrincipalActiv.this)){
+            buildDialog(MenuPrincipalActiv.this).show();
+        } else {
+            setContentView(R.layout.activity_menu_principal);
+            BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+            navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        mainNav = findViewById(R.id.navigation);
+            mainNav = findViewById(R.id.navigation);
 
-        loadFragment(new BuscarFrag());
+            loadFragment(new BuscarFrag());
 
-        Log.i("CicloVida", "OnCreate");
+            Toast.makeText(MenuPrincipalActiv.this, "Bienvenido a MEYAJ", Toast.LENGTH_SHORT).show();
+
+            Log.i("CicloVida", "OnCreate");
+        }
+
+
     }
-
 
     private boolean loadFragment(Fragment fragment) {
         if(fragment != null) {
@@ -76,5 +91,38 @@ public class MenuPrincipalActiv extends AppCompatActivity
             return true;
         }
         return false;
+    }
+
+    public boolean isConnected(Context context) {
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netinfo = cm.getActiveNetworkInfo();
+
+        if (netinfo != null && netinfo.isConnectedOrConnecting()) {
+            android.net.NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+            android.net.NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+
+            if((mobile != null && mobile.isConnectedOrConnecting()) || (wifi != null && wifi.isConnectedOrConnecting())) return true;
+            else return false;
+        } else
+            return false;
+    }
+
+    public AlertDialog.Builder buildDialog(Context c) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(c);
+        builder.setTitle("No hay conexión a Internet");
+        builder.setMessage("Debes de tener WI-FI o Datos del móvil para acceder a esto. Presiona OK para salir.");
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                finish();
+            }
+        });
+
+        return builder;
     }
 }
