@@ -10,11 +10,13 @@
 
     <EditText
         android:id="@+id/etSearch"
-        android:layout_width="351dp"
+        android:layout_width="367dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="53dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="60dp"
         android:layout_weight="1"
         android:background="@drawable/search_layout"
         android:ems="10"
