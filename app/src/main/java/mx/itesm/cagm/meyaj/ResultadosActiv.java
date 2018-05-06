@@ -1,6 +1,9 @@
 package mx.itesm.cagm.meyaj;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,7 +41,7 @@ public class ResultadosActiv extends AppCompatActivity {
 
         rv = (RecyclerView) findViewById(R.id.rvProfesionistas);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
 
         serviceType = (String) bundle.get("ServiceType");
@@ -71,16 +74,23 @@ public class ResultadosActiv extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot){
                 profesionistas.clear();
+                int contador = 0;
                 for (DataSnapshot snapshot:
                         dataSnapshot.getChildren()) {
-
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     String prof = snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);
                     if(!serviceType.equals("")){
                         System.out.println("Service Type = "+serviceType);
                         if(prof.equals(serviceType)) {
+
                             datosProf[0] = snapshot.child(FBReferences.NOMBRE_REF).getValue(String.class) + " " + snapshot.child(FBReferences.APELLIDO_REF).getValue(String.class);
                             //Captura de Profesion
                             datosProf[1] = snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);
+                            contador++;
                             //Captura distancia PENDIENTE
                             datosProf[2] = "1.2";
                             //Captura calificacion
@@ -96,13 +106,39 @@ public class ResultadosActiv extends AppCompatActivity {
                         }
                     }
                 }
+                System.out.println("CONTADOR: "+contador);
+                if(contador==0){
+                    //Toast.makeText(getApplicationContext(),,Toast.LENGTH_SHORT).show();
 
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            if (!isFinishing()){
+                                new AlertDialog.Builder(ResultadosActiv.this)
+                                        .setTitle("BD Null")
+                                        .setMessage("Error en la busqueda, intenta con otro atributo")
+                                        .setCancelable(false)
+                                        .setPositiveButton("Ir", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                // Whatever...
+                                                Intent intentBusqueda = new Intent(ResultadosActiv.this, BuscarServicioActiv.class);
+                                                startActivity(intentBusqueda);
+                                                finish();
+                                            }
+                                        }).show();
+                            }
+                        }
+                    });
+                }
                 adaptador.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("No es posible");
+                System.out.println("--------------------------------------------");
             }
 
 
