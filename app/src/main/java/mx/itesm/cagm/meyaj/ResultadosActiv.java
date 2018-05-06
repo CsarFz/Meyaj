@@ -116,8 +116,8 @@ public class ResultadosActiv extends AppCompatActivity {
 
                             if (!isFinishing()){
                                 new AlertDialog.Builder(ResultadosActiv.this)
-                                        .setTitle("BD Null")
-                                        .setMessage("Error en la busqueda, intenta con otro atributo")
+                                        .setTitle("Lo sentimos.")
+                                        .setMessage("Error en la búsqueda:\nNo hay ningun profesionista registrado para el servicio que buscas.")
                                         .setCancelable(false)
                                         .setPositiveButton("Ir", new DialogInterface.OnClickListener() {
                                             @Override
