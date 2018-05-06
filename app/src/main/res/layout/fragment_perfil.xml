@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@color/colorIcons"
     tools:context="mx.itesm.cagm.meyaj.PerfilFrag">
 
     <!-- TODO: Update blank fragment layout -->
@@ -87,7 +87,7 @@
         android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:text="@string/str_ingresar"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorIcons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPasswordI" />

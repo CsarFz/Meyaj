@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/str_cancelar"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorIcons"
             tools:layout_editor_absoluteX="64dp"
             tools:layout_editor_absoluteY="463dp" />
 
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/strRegistrar"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorIcons" />
     </LinearLayout>
 
     <CheckBox
