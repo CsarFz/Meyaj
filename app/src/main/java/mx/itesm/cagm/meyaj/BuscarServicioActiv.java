@@ -91,10 +91,10 @@ public class BuscarServicioActiv extends AppCompatActivity {
         });
         // -----> César*/
 
-        ArrayList<String> arrayService = new ArrayList<>();
+        /*ArrayList<String> arrayService = new ArrayList<>();
         arrayService.addAll(Arrays.asList(getResources().getStringArray(R.array.my_services)));
 
-        /*adapter= new ArrayAdapter<String>(
+        adapter= new ArrayAdapter<String>(
                 BuscarServicioActiv.this,
                 android.R.layout.simple_list_item_1,
                 arrayService

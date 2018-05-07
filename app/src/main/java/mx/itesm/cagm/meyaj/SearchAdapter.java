@@ -1,6 +1,7 @@
 package mx.itesm.cagm.meyaj;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -48,7 +49,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SearchViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SearchViewHolder holder, final int position) {
         holder.tvService.setText(nameServiceList.get(position));
 
         Glide.with(context)
@@ -59,7 +60,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
         holder.tvService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "tvService Clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, ResultadosActiv.class);
+                intent.putExtra("ServiceType", (nameServiceList.toString()));
+                context.startActivity(intent);
+                Toast.makeText(context, "Buscando servicio...", Toast.LENGTH_LONG).show();
             }
         });
     }
