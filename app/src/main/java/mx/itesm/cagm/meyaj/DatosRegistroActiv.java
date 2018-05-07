@@ -118,11 +118,12 @@ public class DatosRegistroActiv extends AppCompatActivity
                         }
                     });
 
-            Toast.makeText(this, "Creando perfil....", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Usuario registrado", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(DatosRegistroActiv.this, MenuPrincipalActiv.class);
             startActivity(intent);
         }
     }
+
 
 
     @Override
