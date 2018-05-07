@@ -111,9 +111,9 @@ public class RegistroActiv extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             //El usuario esta registrado exitosamente, vamos a abrir la actividad para llena rel perfil
-                            Toast.makeText(RegistroActiv.this,"Usuario registrado.", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(RegistroActiv.this,"Usuario registrado.", Toast.LENGTH_SHORT).show();
                             try {
-                                Toast.makeText(getApplicationContext(),"Usuario Registrado.",Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getApplicationContext(),"Usuario Registrado.",Toast.LENGTH_SHORT).show();
                                 Thread.sleep(3000);
 
                                 if(esProfesionista){

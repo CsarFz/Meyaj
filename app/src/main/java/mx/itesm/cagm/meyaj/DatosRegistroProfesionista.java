@@ -123,7 +123,7 @@ public class DatosRegistroProfesionista extends AppCompatActivity
                         }
                     });
 
-            Toast.makeText(this,"Creando perfil....", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Usuario registrado", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(DatosRegistroProfesionista.this, MenuPrincipalActiv.class);
             startActivity(intent);
         }
