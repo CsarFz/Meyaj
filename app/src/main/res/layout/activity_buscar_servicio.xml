@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorIcons"
     android:paddingBottom="10dp"
-    tools:context="mx.itesm.cagm.meyaj.BuscarServicioActiv">
+    tools:context="mx.itesm.cagm.meyaj.BuscarServicioActiv"
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/etSearch"

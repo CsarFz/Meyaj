@@ -15,23 +15,44 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MenuPrincipalActiv"
-            android:label="@string/app_name" />
-        <activity android:name=".RegistroActiv" />
-        <activity android:name=".BuscarServicioActiv" />
-        <activity android:name=".ConfigurarActiv" />
-        <activity android:name=".SplashActiv">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".RegistroActiv"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".BuscarServicioActiv"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ConfigurarActiv"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".SplashActiv"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ResultadosActiv" />
-        <activity android:name=".DetalleProfesionistaActiv" />
-        <activity android:name=".WelcomeActiv" />
-        <activity android:name=".DatosRegistroActiv" />
-        <activity android:name=".DatosRegistroProfesionista"/>
-        <activity android:name=".CitaActiv"></activity>
+        <activity
+            android:name=".ResultadosActiv"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".DetalleProfesionistaActiv"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".WelcomeActiv"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".DatosRegistroActiv"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".DatosRegistroProfesionista"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".CitaActiv"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
