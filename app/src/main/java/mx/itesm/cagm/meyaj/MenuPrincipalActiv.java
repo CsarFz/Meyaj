@@ -73,9 +73,6 @@ public class MenuPrincipalActiv extends AppCompatActivity
 
             loadFragment(new BuscarFrag());
 
-            Toast.makeText(MenuPrincipalActiv.this, "Bienvenido a MEYAJ", Toast.LENGTH_SHORT).show();
-
-            Log.i("CicloVida", "OnCreate");
         }
 
 
