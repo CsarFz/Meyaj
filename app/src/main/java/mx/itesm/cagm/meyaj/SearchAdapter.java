@@ -63,7 +63,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
                 Intent intent = new Intent(context, ResultadosActiv.class);
                 intent.putExtra("ServiceType", (nameServiceList.toString()));
                 context.startActivity(intent);
-                Toast.makeText(context, "Buscando servicio...", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Buscando servicio...", Toast.LENGTH_SHORT).show();
             }
         });
     }
