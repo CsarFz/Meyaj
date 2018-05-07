@@ -1,7 +1,10 @@
 package mx.itesm.cagm.meyaj;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Parcelable;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -30,6 +33,13 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
     ArrayList<Servicio> servicios;
     Servicio s;
 
+
+    NotificationCompat.Builder notification;
+    private static final int uniqueID = 45612;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +51,14 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
         direccion = (String) bundle.get("ADDRESS");
         llave = (String) bundle.get("KEY");
         servicios = new ArrayList<>();
+
+
+
+        //Generar la notification
+        notification = new NotificationCompat.Builder(getApplicationContext());
+        notification.setAutoCancel(false);
+
+
 
         tvN = findViewById(R.id.tvTelefono);
         tvD = findViewById(R.id.tvDireccion);
@@ -72,7 +90,6 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
 
                 }else{
                     Toast.makeText(DetalleProfesionistaActiv.this,"Seleccione al menos 1 servicio",Toast.LENGTH_LONG).show();
-
                 }
 
             }

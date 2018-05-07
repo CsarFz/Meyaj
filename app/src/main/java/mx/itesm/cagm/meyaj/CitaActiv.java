@@ -1,9 +1,12 @@
 package mx.itesm.cagm.meyaj;
 
 import android.app.DatePickerDialog;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.app.TimePickerDialog;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -29,6 +32,10 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
     AdaptadorResumenServicio adaptadorServicio;
     TextView horaFinal;
 
+
+    NotificationCompat.Builder notification;
+    private static final int uniqueID = 45612;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +45,13 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
         servicios = (ArrayList<Servicio>) bundle.get("SelectedServices");
 
         total = (int) bundle.get("Total");
+
+
+        //Generar la notification
+        notification = new NotificationCompat.Builder(getApplicationContext());
+        notification.setAutoCancel(false);
+
+
 
         Button btnDate = (Button) findViewById(R.id.btnFecha);
         Button btnHour = (Button) findViewById(R.id.btnHora);
@@ -81,6 +95,25 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
                 Intent intent = new Intent(CitaActiv.this, MenuPrincipalActiv.class);
                 startActivity(intent);
                 finishAffinity();
+
+                //Build the notification
+                notification.setSmallIcon(R.drawable.logo);
+                notification.setTicker("This is the ticker");
+                notification.setWhen(System.currentTimeMillis());
+                notification.setContentTitle("Cita pendiente...");
+                notification.setContentText("Recuerda que estas proximo a tener una cita con un profesional");
+
+                Intent intentNotification = new Intent(getApplicationContext(), MenuPrincipalActiv.class);
+                PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intentNotification, PendingIntent.FLAG_UPDATE_CURRENT);
+                notification.setContentIntent(pendingIntent);
+
+                //Builds notification and issues it
+                NotificationManager nm = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                nm.notify(uniqueID, notification.build());
+
+
+
+
                 Toast.makeText(getApplicationContext(),"Cita realizada con éxito, puede revisarla en su agenda para consultar detalles",Toast.LENGTH_LONG).show();
 
             }
