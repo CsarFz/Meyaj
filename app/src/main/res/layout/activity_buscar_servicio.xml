@@ -26,10 +26,11 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="10dp"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         android:drawableLeft="@drawable/ic_search"
-        android:drawableTint="@color/colorPrimaryDark"
+        android:drawableTint="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
         tools:layout_editor_absoluteX="31dp"
         tools:layout_editor_absoluteY="33dp" />
 
