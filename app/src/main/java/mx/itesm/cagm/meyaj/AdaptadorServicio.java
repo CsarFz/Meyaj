@@ -1,6 +1,5 @@
 package mx.itesm.cagm.meyaj;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,11 +42,9 @@ public class AdaptadorServicio extends RecyclerView.Adapter<AdaptadorServicio.DS
                 if(cb.isChecked()){
                     checkedServices.add(servicios.get(pos));
                     totalus.add(Integer.valueOf(servicios.get(pos).getPrecio()));
-                    System.out.println("VA = "+Integer.valueOf(servicios.get(pos).getPrecio()));
                 }else if(!cb.isChecked()){
                     checkedServices.remove(servicios.get(pos));
                     totalus.remove(Integer.valueOf(servicios.get(pos).getPrecio()));
-                    System.out.println("VA = "+total);
                 }
             }
         });
