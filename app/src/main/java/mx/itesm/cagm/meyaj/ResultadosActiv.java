@@ -13,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -86,7 +88,6 @@ public class ResultadosActiv extends AppCompatActivity {
                     */
                     String prof = snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);
                     if(!serviceType.equals("")){
-                        System.out.println("Service Type = "+serviceType);
                         if(prof.equals(serviceType)) {
 
                             datosProf[0] = snapshot.child(FBReferences.NOMBRE_REF).getValue(String.class) + " " + snapshot.child(FBReferences.APELLIDO_REF).getValue(String.class);
@@ -103,12 +104,10 @@ public class ResultadosActiv extends AppCompatActivity {
                             datosProf[5] = (String) snapshot.child(FBReferences.DIRECCION_REF).child("Colonia").getValue();
                             datosProf[6] = String.valueOf(snapshot.getKey());
                             profesionistas.add(datosProf);
-                            System.out.println(profesionistas.toString());
                             datosProf = new String[7];
                         }
                     }
                 }
-                System.out.println("CONTADOR: "+contador);
                 if(contador==0){
                     //Toast.makeText(getApplicationContext(),,Toast.LENGTH_SHORT).show();
 

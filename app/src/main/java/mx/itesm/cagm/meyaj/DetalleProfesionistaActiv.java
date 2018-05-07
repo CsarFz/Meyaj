@@ -51,8 +51,6 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
         tvP.setText(profesion);
         tvD.setText(direccion);
 
-        System.out.println(llave);
-
         solicitar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,6 +66,9 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
                     intent.putExtra("SelectedServices",  adaptadorServicio.getCheckedServices());
                     //Pasa total tarifa seleccionados
                     intent.putExtra("Total",  getSum(adaptadorServicio.totalus));
+                    //Llave profesionista
+                    intent.putExtra("LlaveProfesionista",llave);
+
                     startActivity(intent);
 
                 }else{
@@ -91,14 +92,12 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 servicios.clear();
                 for (DataSnapshot snapshot: dataSnapshot.child(llave).child(FBReferences.SERVICIOS_REF).getChildren()) {
-                    System.out.println(snapshot.getValue());
                     String titulo = snapshot.child("Titulo").getValue(String.class);
                     String descripcion = snapshot.child("Descripcion").getValue(String.class);
                     String precio = snapshot.child("Precio").getValue(String.class);
                     String duracion = snapshot.child("Duracion").getValue(String.class);
                     s = new Servicio(titulo,precio,descripcion,duracion);
                     servicios.add(s);
-                    System.out.println("AÑADI:"+ s.toString());
                 }
                 adaptadorServicio.notifyDataSetChanged();
             }
