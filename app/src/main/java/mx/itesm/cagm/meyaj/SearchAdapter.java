@@ -61,7 +61,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ResultadosActiv.class);
-                intent.putExtra("ServiceType", (nameServiceList.toString()));
+                intent.putExtra("ServiceType", (nameServiceList.get(position).toString()));
                 context.startActivity(intent);
                 Toast.makeText(context, "Buscando servicio...", Toast.LENGTH_SHORT).show();
             }
