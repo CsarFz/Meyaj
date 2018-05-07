@@ -17,8 +17,9 @@ public class ConfigurarActiv extends AppCompatActivity {
 
 
     private Button btnCerrarSesion;
-
     private Button btnGuardarPerfil;
+    private Button btnCancelar;
+
     private EditText etNombre;
     private EditText etApellidos;
     private EditText etNumeroTel;
@@ -51,6 +52,15 @@ public class ConfigurarActiv extends AppCompatActivity {
             public void onClick(View v) {
                 guardarInformacion();
 
+            }
+        });
+
+
+        btnCancelar = findViewById(R.id.btnCancelar);
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ConfigurarActiv.super.onBackPressed();
             }
         });
 

@@ -39,6 +39,7 @@
     <string name="str_contraseña">Contraseña</string>
     <string name="str_checkProfesionista">¿Deseas anunciar tus servicios?</string>
     <string name="str_telefono">Teléfono:</string>
+    <string name="str_cargando">Cargando...</string>
 
     <string-array name="my_services">
         <item>Taxi</item>

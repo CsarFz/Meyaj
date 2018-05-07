@@ -55,7 +55,7 @@ public class RegistroActiv extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this, R.style.MyAlertDialogStyle);
 
-        cbProfesionista = findViewById(R.id.cbProfesionista);
+        //cbProfesionista = findViewById(R.id.cbProfesionista);
 
         setContentView(R.layout.activity_registro);
         etCorreo = findViewById(R.id.etCorreo);
@@ -110,8 +110,6 @@ public class RegistroActiv extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            //El usuario esta registrado exitosamente, vamos a abrir la actividad para llena rel perfil
-                            //Toast.makeText(RegistroActiv.this,"Usuario registrado.", Toast.LENGTH_SHORT).show();
                             try {
                                 //Toast.makeText(getApplicationContext(),"Usuario Registrado.",Toast.LENGTH_SHORT).show();
                                 Thread.sleep(3000);
@@ -137,7 +135,7 @@ public class RegistroActiv extends AppCompatActivity {
                 });
     }
 
-
+    /*
     public void onCheckboxClicked(View view) {
         boolean checked = ((CheckBox) view).isChecked();
         switch(view.getId()) {
@@ -150,6 +148,7 @@ public class RegistroActiv extends AppCompatActivity {
                 break;
         }
     }
+    */
 
 }
 
