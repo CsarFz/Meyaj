@@ -68,7 +68,7 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
 
                 DialogFragment hourPicker = new HoraFragment();
                 android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
-                hourPicker.show(manager,"hola");
+                hourPicker.show(manager,"hola =)");
 
 
             }
