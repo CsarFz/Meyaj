@@ -17,6 +17,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:background="@android:color/transparent"
+        android:tint="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/tvTelefono"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
