@@ -77,11 +77,13 @@ public class ResultadosActiv extends AppCompatActivity {
                 int contador = 0;
                 for (DataSnapshot snapshot:
                         dataSnapshot.getChildren()) {
+                    /*
                     try {
                         Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                    */
                     String prof = snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);
                     if(!serviceType.equals("")){
                         System.out.println("Service Type = "+serviceType);

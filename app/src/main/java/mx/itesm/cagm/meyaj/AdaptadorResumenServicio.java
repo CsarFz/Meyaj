@@ -30,8 +30,8 @@ public class AdaptadorResumenServicio extends RecyclerView.Adapter<AdaptadorResu
     @Override
     public void onBindViewHolder(AdaptadorResumenServicio.RSViewHOlder holder, int position) {
         holder.servicio.setText(servicios.get(position).getServicio());
-        holder.duracion.setText(servicios.get(position).getDuracion());
-        holder.precio.setText(servicios.get(position).getPrecio());
+        holder.duracion.setText(servicios.get(position).getDuracion()+" min");
+        holder.precio.setText("$ "+servicios.get(position).getPrecio());
     }
 
     @Override
@@ -41,13 +41,14 @@ public class AdaptadorResumenServicio extends RecyclerView.Adapter<AdaptadorResu
 
 
     public static class RSViewHOlder extends RecyclerView.ViewHolder{
-        TextView servicio, duracion, precio;
+        TextView servicio, duracion, precio, total;
 
         public RSViewHOlder(View itemView) {
             super(itemView);
+            total = itemView.findViewById(R.id.tvTotal);
             servicio = itemView.findViewById(R.id.tvRServicio);
             precio = itemView.findViewById(R.id.tvRPrecio);
-            duracion = itemView.findViewById(R.id.tvRServicio);
+            duracion = itemView.findViewById(R.id.tvRDuracion);
 
         }
 

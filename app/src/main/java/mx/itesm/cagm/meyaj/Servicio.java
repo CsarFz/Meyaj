@@ -1,8 +1,8 @@
 package mx.itesm.cagm.meyaj;
 
-import android.widget.TextView;
+import java.io.Serializable;
 
-public class Servicio {
+public class Servicio implements Serializable {
     String servicio,precio,descripcion,duracion;
 
     public Servicio(String servicio, String precio, String descripcion, String duracion) {
@@ -43,4 +43,5 @@ public class Servicio {
     public void setDuracion(String duracion) {
         this.duracion = duracion;
     }
+
 }

@@ -14,14 +14,20 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
+
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+
 public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     ArrayList<Servicio> servicios;
-
+    int total;
     AdaptadorResumenServicio adaptadorServicio;
+    TextView horaFinal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +35,19 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
         setContentView(R.layout.activity_cita);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-       // servicios = (ArrayList<Servicio>) bundle.get("SelectedServices");
+        servicios = (ArrayList<Servicio>) bundle.get("SelectedServices");
+
+        total = (int) bundle.get("Total");
+
         Button btnDate = (Button) findViewById(R.id.btnFecha);
         Button btnHour = (Button) findViewById(R.id.btnHora);
+        Button btnSolicitar = (Button) findViewById(R.id.btnAgendar);
+
+        adaptadorServicio = new AdaptadorResumenServicio(servicios);
+        //Actualizacion datos pantalla
+        TextView totalCuenta = findViewById(R.id.tvTotal);
+        totalCuenta.setText("Total: $ "+String.valueOf(total)+".00 (IVA incluido)");
+
         RecyclerView rv = findViewById(R.id.rvRServicios);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setItemAnimator(new DefaultItemAnimator());
@@ -53,6 +69,20 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
                 DialogFragment hourPicker = new HoraFragment();
                 android.support.v4.app.FragmentManager manager = getSupportFragmentManager();
                 hourPicker.show(manager,"hola");
+
+
+            }
+        });
+
+        btnSolicitar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(CitaActiv.this, MenuPrincipalActiv.class);
+                startActivity(intent);
+                finishAffinity();
+                Toast.makeText(getApplicationContext(),"Cita realizada con éxito, puede revisarla en su agenda para consultar detalles",Toast.LENGTH_LONG).show();
+
             }
         });
 
@@ -72,18 +102,19 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
 
     @Override
     public void onTimeSet(TimePicker timePicker, int i, int i1) {
-        TextView textView = findViewById(R.id.tvHoraInicio);
+        TextView hInit = findViewById(R.id.tvHoraInicio);
+        TextView hFinit = findViewById(R.id.tvHoraFin);
         if(i1<10){
             if(i>12){
-                textView.setText(i+" : 0"+ i1+" PM");
+                hInit.setText(i+" : 0"+ i1+" PM");
             }else{
-                textView.setText(i+" : 0"+ i1+" AM");
+                hInit.setText(i+" : 0"+ i1+" AM");
             }
         }else{
             if(i>12){
-                textView.setText(i+" : "+ i1+" PM");
+                hInit.setText(i+" : "+ i1+" PM");
             }else{
-                textView.setText(i+" : "+ i1+" AM");
+                hInit.setText(i+" : "+ i1+" AM");
             }
 
         }

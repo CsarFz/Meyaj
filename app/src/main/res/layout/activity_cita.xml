@@ -155,24 +155,18 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/textView24"
-            android:layout_width="22dp"
+            android:id="@+id/tvTotal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="3"
+            android:gravity="center"
             android:text="Total: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="18sp"
             tools:layout_editor_absoluteX="72dp"
             tools:layout_editor_absoluteY="342dp" />
 
-        <TextView
-            android:id="@+id/tvTotal"
-            android:layout_width="0dp"
-            android:layout_height="21dp"
-            android:layout_marginLeft="156dp"
-            android:layout_marginStart="156dp"
-            android:layout_weight="1"
-            android:text="$"
-            app:layout_constraintStart_toEndOf="@+id/textView24"
-            tools:layout_editor_absoluteY="321dp" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
@@ -185,6 +179,8 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -214,7 +210,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:text="TextView"
+        android:text="Seleccione la hora de su servicio"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

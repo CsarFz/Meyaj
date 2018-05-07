@@ -42,6 +42,8 @@ public class HoraFragment extends DialogFragment {
             mTimeSetListener = listener;
         }
 
+
+
         @Override
         public void updateTime(int hourOfDay, int minuteOfHour) {
             mTimePicker.setCurrentHour(hourOfDay);
@@ -87,5 +89,6 @@ public class HoraFragment extends DialogFragment {
             }
         }
     }
+
 
 }

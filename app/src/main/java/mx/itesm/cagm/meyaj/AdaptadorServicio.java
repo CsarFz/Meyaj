@@ -61,6 +61,17 @@ public class AdaptadorServicio extends RecyclerView.Adapter<AdaptadorServicio.DS
 
     public int getTotal(){ return total; }
 
+    public ArrayList<Servicio> getServicios() {
+        return servicios;
+    }
+
+    public ArrayList<Servicio> getCheckedServices() {
+        return checkedServices;
+    }
+
+    public ArrayList<Integer> getTotalus() {
+        return totalus;
+    }
 
     public static class DSViewHOlder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView servicio,precio,descripcion,duracion;

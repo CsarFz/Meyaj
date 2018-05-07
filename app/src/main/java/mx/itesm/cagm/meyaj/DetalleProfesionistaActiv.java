@@ -1,6 +1,7 @@
 package mx.itesm.cagm.meyaj;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -63,8 +64,10 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
                 System.out.println("TAMAÑO: "+adaptadorServicio.checkedServices.size());
                 if (adaptadorServicio.checkedServices.size()>0){
                     Intent intent = new Intent(DetalleProfesionistaActiv.this, CitaActiv.class);
-                    //intent.putExtra("SelectedServices",adaptadorServicio.servicios);
-                    //System.out.println("Total es: "+ getSum(adaptadorServicio.totalus));
+                    //Pasa servicios seleccionados
+                    intent.putExtra("SelectedServices",  adaptadorServicio.getCheckedServices());
+                    //Pasa total tarifa seleccionados
+                    intent.putExtra("Total",  getSum(adaptadorServicio.totalus));
                     startActivity(intent);
 
                 }else{
