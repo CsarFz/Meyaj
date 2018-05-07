@@ -10,7 +10,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/btnImagen"
         android:layout_width="121dp"
         android:layout_height="111dp"
         android:layout_alignParentStart="true"
@@ -36,7 +36,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.125"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/btnImagen"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -49,7 +49,7 @@
         android:textColor="#555555"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/btnImagen"
         app:layout_constraintTop_toBottomOf="@+id/tvNombreUsuario" />
 
     <TextView
@@ -61,9 +61,9 @@
         android:text="Dirección"
         android:textColor="#555555"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+        app:layout_constraintBottom_toBottomOf="@+id/btnImagen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/btnImagen"
         app:layout_constraintTop_toBottomOf="@+id/tvNumeroUsuario"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -76,9 +76,9 @@
         android:text="@string/str_correo_usuario"
         android:textColor="#555555"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+        app:layout_constraintBottom_toBottomOf="@+id/btnImagen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toEndOf="@+id/btnImagen"
         app:layout_constraintTop_toBottomOf="@+id/tvNumeroUsuario"
         app:layout_constraintVertical_bias="0.0" />
 

@@ -10,7 +10,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/btnImagen"
         android:layout_width="121dp"
         android:layout_height="111dp"
         android:layout_alignParentTop="true"
