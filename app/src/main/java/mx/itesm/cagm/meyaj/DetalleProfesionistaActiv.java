@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,12 +27,13 @@ import java.util.ArrayList;
 public class DetalleProfesionistaActiv extends AppCompatActivity {
 
     TextView tvN, tvP, tvD;
-    String nombre,profesion,direccion,llave;
+    String nombre,profesion,direccion,llave,grade;
     StringBuffer sb=null;
     AdaptadorServicio adaptadorServicio;
 
     ArrayList<Servicio> servicios;
     Servicio s;
+    RatingBar calificacion;
 
 
     NotificationCompat.Builder notification;
@@ -47,6 +49,7 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
         profesion = (String) bundle.get("PROFESSION");
         direccion = (String) bundle.get("ADDRESS");
         llave = (String) bundle.get("KEY");
+        grade = (String) bundle.get("GRADE");
         servicios = new ArrayList<>();
 
         //Generar la notification
@@ -56,11 +59,15 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
         tvN = findViewById(R.id.tvTelefono);
         tvD = findViewById(R.id.tvDireccion);
         tvP = findViewById(R.id.tvProfesion);
+        System.out.println("CALIFICACION"+grade);
+        calificacion = findViewById(R.id.ratingBar);
         Button solicitar = findViewById(R.id.btnSolicitar);
 
         tvN.setText(nombre);
         tvP.setText(profesion);
         tvD.setText(direccion);
+        calificacion.setProgress(Integer.parseInt(grade));
+
 
         solicitar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +111,7 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
                 for (DataSnapshot snapshot: dataSnapshot.child(llave).child(FBReferences.SERVICIOS_REF).getChildren()) {
                     String titulo = snapshot.child("Titulo").getValue(String.class);
                     String descripcion = snapshot.child("Descripcion").getValue(String.class);
+
                     String precio = snapshot.child("Precio").getValue(String.class);
                     String duracion = snapshot.child("Duracion").getValue(String.class);
                     s = new Servicio(titulo,precio,descripcion,duracion);

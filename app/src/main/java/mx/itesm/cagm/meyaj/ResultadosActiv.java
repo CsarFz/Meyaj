@@ -67,6 +67,7 @@ public class ResultadosActiv extends AppCompatActivity {
                 Intent intent = new Intent(ResultadosActiv.this, DetalleProfesionistaActiv.class);
                 intent.putExtra("NAME", profesionistas.get(rv.getChildAdapterPosition(view))[0]);
                 intent.putExtra("ADDRESS", profesionistas.get(rv.getChildAdapterPosition(view))[5]);
+                intent.putExtra("GRADE", profesionistas.get(rv.getChildAdapterPosition(view))[3]);
                 intent.putExtra("PROFESSION", profesionistas.get(rv.getChildAdapterPosition(view))[1]);
                 intent.putExtra("KEY",profesionistas.get(rv.getChildAdapterPosition(view))[6]);
                 startActivity(intent);

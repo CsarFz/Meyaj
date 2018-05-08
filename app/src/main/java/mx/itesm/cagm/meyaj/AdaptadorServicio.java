@@ -32,9 +32,9 @@ public class AdaptadorServicio extends RecyclerView.Adapter<AdaptadorServicio.DS
     @Override
     public void onBindViewHolder(DSViewHOlder holder, int position) {
         holder.servicio.setText(servicios.get(position).getServicio());
-        holder.duracion.setText(servicios.get(position).getDuracion());
+        holder.duracion.setText(servicios.get(position).getDuracion()+" min");
         holder.descripcion.setText(servicios.get(position).getDescripcion());
-        holder.precio.setText(servicios.get(position).getPrecio());
+        holder.precio.setText("$ "+servicios.get(position).getPrecio());
         holder.setServiceClickListener(new ServiceClickListener() {
             @Override
             public void onServiceClick(View v, int pos) {
