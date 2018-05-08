@@ -43,7 +43,7 @@ public class BuscarFrag extends Fragment
         // Inflate the layout for this fragment
         View myView = inflater.inflate(R.layout.fragment_buscar, container, false);
 
-        mainGrid = getActivity().findViewById(R.id.mainGrid);
+        //mainGrid = getActivity().findViewById(R.id.mainGrid);
 
         // Listener de Card View Buscar
         cvCarpintero = myView.findViewById(R.id.cvCarpintero);

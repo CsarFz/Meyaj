@@ -31,7 +31,7 @@ public class SliderAdapter extends PagerAdapter {
     };
 
     public String[] slide_desc = {
-        "Busca un servicio que necesites en nuestra aplicación MEYAJ. Te facilitará en encontrar el servicio que solicites.",
+        "Busca un servicio que necesites en nuestra aplicación MEYAJ. Te facilitará encontrar el servicio que solicites.",
         "El servicio que necesites estará a tu alcance con un sólo clic."
     };
 
