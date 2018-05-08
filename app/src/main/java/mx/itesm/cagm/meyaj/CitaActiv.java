@@ -89,6 +89,7 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
         user = firebaseAuth.getCurrentUser();
 
         if(user==null){
+            btnSolicitar.setEnabled(false);
             btnSolicitar.setText("Inicia sesión o regístrate para solicitar servicio");
         }
 
