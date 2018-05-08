@@ -69,45 +69,22 @@ public class InfoPerfilFrag extends Fragment
         tvTelefono = myView.findViewById(R.id.tvTelefono);
         ivFoto = myView.findViewById(R.id.ivFoto);
 
+
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
+
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-
-        DatabaseReference apellidoChild = databaseReference.child(user.getUid()).child("apellido");
-        apellidoChild.addValueEventListener(new ValueEventListener() {
+        DatabaseReference infoUsuario = databaseReference.child(user.getUid());
+        infoUsuario.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                apellido = dataSnapshot.getValue(String.class);
-                //tvNombre.append(" " + apellidoDb);
-            }
+                String nombre = dataSnapshot.child("nombre").getValue(String.class);
+                String apellido = dataSnapshot.child("apellido").getValue(String.class);
+                String tel = dataSnapshot.child("numeroTelefono").getValue(String.class);
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        DatabaseReference nombreChild = databaseReference.child(user.getUid()).child("nombre");
-        nombreChild.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String nombreDb = dataSnapshot.getValue(String.class);
-                tvNombre.setText(nombreDb + " " + apellido);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-        DatabaseReference telChild = databaseReference.child(user.getUid()).child("numeroTelefono");
-        telChild.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                String tel = dataSnapshot.getValue(String.class);
+                tvNombre.setText(nombre + " " + apellido);
                 tvTelefono.setText(tel);
             }
 
@@ -117,36 +94,18 @@ public class InfoPerfilFrag extends Fragment
             }
         });
 
-
-
-        //storageReference = FirebaseStorage.getInstance().getReferenceFromUrl("gs://registrousuariosmeyaj.appspot.com/gMtATgbPQ8auFIXJaYPqADJmMQI2/profilepic.jpg");
-
-        //StorageReference ref = storageReference.child(user.getUid() + "/profilepic.jpg");
-        //Glide.with(getContext())
-        //        .load(storageReference)
-        //        .into(ivFoto);
-
-
-        /*
-        storageReference.child(user.getUid() + "/" + "profilepic.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        storageReference = FirebaseStorage.getInstance().getReference();
+        storageReference.child(user.getUid()).child("profilepic.jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                //Toast.makeText(getContext(), "ENTRÓ", Toast.LENGTH_SHORT).show();
-                imageUri = uri;
-                //ivFoto.setImageURI(uri);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getContext(), "ERROR", Toast.LENGTH_SHORT).show();
+                if(isAdded()) {
+                    Glide.with(getContext())
+                            .asBitmap()
+                            .load(uri)
+                            .into(ivFoto);
+                }
             }
         });
-        */
-
-
-        //ivFoto.setImageURI(imageUri);
-
-
 
 
         btnConfigurar = myView.findViewById(R.id.btnConfig);
