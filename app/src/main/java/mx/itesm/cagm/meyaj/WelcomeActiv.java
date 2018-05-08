@@ -82,13 +82,8 @@ public class WelcomeActiv extends AppCompatActivity {
         skipBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                skipBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intMenuPrincipal = new Intent(WelcomeActiv.this, MenuPrincipalActiv.class);
-                        startActivity(intMenuPrincipal);
-                    }
-                });
+                Intent intMenuPrincipal = new Intent(WelcomeActiv.this, MenuPrincipalActiv.class);
+                startActivity(intMenuPrincipal);
             }
         });
     }
