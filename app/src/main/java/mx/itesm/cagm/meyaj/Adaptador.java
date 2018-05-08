@@ -60,8 +60,6 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.PViewHOlder> imple
         }
     }
 
-
-
     public static class PViewHOlder extends RecyclerView.ViewHolder{
         TextView nombre,profesion,distancia,votos;
         ImageView imagen;

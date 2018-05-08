@@ -154,7 +154,7 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
 
 
 
-                    Toast.makeText(getApplicationContext(),"Cita realizada con éxito, puede revisarla en su agenda para consultar detalles",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Solicitud enviada. Tendrás respuesta en breve.",Toast.LENGTH_LONG).show();
 
                 }
             }
