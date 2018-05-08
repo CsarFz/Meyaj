@@ -22,20 +22,17 @@ public class SliderAdapter extends PagerAdapter {
     // Arrays
     public  int[] slide_images = {
         R.drawable.search,
-        R.drawable.celular,
-        R.drawable.login
+        R.drawable.celular
     };
 
     public  String[] slide_headings = {
         "BUSCA UN SERVICIO",
-        "PIDE UN SERVICIO",
-        "O REGISTRATE COMO PROFESIONISTA"
+        "PIDE UN SERVICIO"
     };
 
     public String[] slide_desc = {
         "Busca un servicio que necesites en nuestra aplicación MEYAJ. Te facilitará en encontrar el servicio que solicites.",
-        "El servicio que necistes estará a tu alcance con un sólo clic.",
-        "Si quieres anunciarte, registrate como profesionista para dar un servicio adecuado."
+        "El servicio que nececites estará a tu alcance con un sólo clic."
     };
 
     @Override

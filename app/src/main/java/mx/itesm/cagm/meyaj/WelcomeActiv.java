@@ -89,7 +89,7 @@ public class WelcomeActiv extends AppCompatActivity {
     }
 
     public void addDotsIndicator(int position) {
-        dots = new TextView[3];
+        dots = new TextView[2];
         dotLayout.removeAllViews();
 
         for(int i = 0; i < dots.length; i++) {

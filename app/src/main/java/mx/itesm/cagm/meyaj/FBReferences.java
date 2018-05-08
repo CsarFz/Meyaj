@@ -10,5 +10,4 @@ public class FBReferences {
     final public static String CALIFICACION_REF = "Calificacion";
     final public static String CALIFICACIONES_REF = "Contrataciones";
     final public static String DIRECCION_REF = "Direccion";
-
 }
