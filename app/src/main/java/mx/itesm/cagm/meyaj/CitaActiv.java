@@ -137,12 +137,12 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
 
 
                     //Build the notification
-                    notification.setSmallIcon(R.drawable.logo);
+                    notification.setSmallIcon(R.drawable.ic_notifications_black_24dp);
                     notification.setTicker("This is the ticker");
                     notification.setWhen(System.currentTimeMillis());
-                    notification.setContentTitle("Cita pendiente...");
-                    notification.setContentText("Recuerda que estas proximo a tener una cita con un profesional");
-                    notification.setOngoing(true);
+                    notification.setContentTitle("Cita pendiente");
+                    notification.setContentText("Recuerda que estas proximo a tener una cita con un profesional.");
+                    notification.setOngoing(false);
 
                     Intent intentNotification = new Intent(getApplicationContext(), MenuPrincipalActiv.class);
                     PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intentNotification, PendingIntent.FLAG_UPDATE_CURRENT);
