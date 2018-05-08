@@ -46,8 +46,8 @@ public class AdaptadorElementoAgenda extends RecyclerView.Adapter<AdaptadorEleme
         public EAViewHOlder(View itemView) {
             super(itemView);
             servicio = itemView.findViewById(R.id.tvServicioA);
-            profesionista = itemView.findViewById(R.id.tvFechaA);
-            fecha = itemView.findViewById(R.id.tvProfesionistaA);
+            fecha = itemView.findViewById(R.id.tvFechaA);
+            profesionista = itemView.findViewById(R.id.tvProfesionistaA);
             hora = itemView.findViewById(R.id.tvHoraA);
             total = itemView.findViewById(R.id.tvTotalA);
         }

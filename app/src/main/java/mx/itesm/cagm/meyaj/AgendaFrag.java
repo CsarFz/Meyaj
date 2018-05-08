@@ -59,38 +59,48 @@ public class AgendaFrag extends Fragment {
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = firebaseAuth.getCurrentUser();
         DatabaseReference ref = database.getReference(FBReferences.SERVICIOS_ACTIVOS_REF);
-        adaptador = new AdaptadorElementoAgenda(datosAgenda);
-        rv.setAdapter(adaptador);
+        if(user==null){
+            System.out.println("Diversion");
+        }else{
+            adaptador = new AdaptadorElementoAgenda(datosAgenda);
+            rv.setAdapter(adaptador);
 
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                datosAgenda.clear();
-                serviciosAgenda.clear();
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    datosAgenda.clear();
+                    serviciosAgenda.clear();
 
-                for (DataSnapshot snapshot :
-                        dataSnapshot.getChildren()) {
-                    if(snapshot.child("Cliente").getValue().equals(user.getUid())){
-                        lista[0]= (String) snapshot.child("Fecha").getValue();
-                        lista[1]= String.valueOf(snapshot.child("Hora").getValue(Integer.class));
-                        lista[2]= String.valueOf(snapshot.child("Minutos").getValue(Integer.class));
-                        lista[3]= (String) snapshot.child("Profesionista").getValue();
-                        serviciosAgenda.add((List) snapshot.child("Servicios").getValue());
-                        datosAgenda.add(lista);
-                        lista = new String[4];
+                    for (DataSnapshot snapshot :
+                            dataSnapshot.getChildren()) {
+                        if(user.getUid()==null){
 
+                        }else{
+                            if(snapshot.child("Cliente").getValue().equals(user.getUid())){
+                                lista[0]= (String) snapshot.child("Fecha").getValue();
+                                lista[1]= String.valueOf(snapshot.child("Hora").getValue(Integer.class));
+                                lista[2]= String.valueOf(snapshot.child("Minutos").getValue(Integer.class));
+                                lista[3]= (String) snapshot.child("Profesionista").getValue();
+                                serviciosAgenda.add((List) snapshot.child("Servicios").getValue());
+                                datosAgenda.add(lista);
+                                lista = new String[4];
+                            }
+
+
+                        }
                     }
+                    adaptador.notifyDataSetChanged();
                 }
-                adaptador.notifyDataSetChanged();
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("No es posible");
-            }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    System.out.println("No es posible");
+                }
 
 
-        });
+            });
+        }
+
 
 
         // Inflate the layout for this fragment
