@@ -1,10 +1,16 @@
 package mx.itesm.cagm.meyaj;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,12 +31,14 @@ public class AdaptadorElementoAgenda extends RecyclerView.Adapter<AdaptadorEleme
         return holder;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(AdaptadorElementoAgenda.EAViewHOlder holder, int position) {
-        holder.servicio.setText(datosAgenda.get(position)[0]);
+
+        holder.servicio.setText("Servicio");
         holder.profesionista.setText(datosAgenda.get(position)[3]);
         holder.fecha.setText(datosAgenda.get(position)[0]);
-        holder.hora.setText(datosAgenda.get(position)[1]+datosAgenda.get(position)[2]);
+        holder.hora.setText(datosAgenda.get(position)[1]+" : "+datosAgenda.get(position)[2]);
 
     }
 
@@ -39,8 +47,10 @@ public class AdaptadorElementoAgenda extends RecyclerView.Adapter<AdaptadorEleme
         return datosAgenda.size();
     }
 
-    public static class EAViewHOlder extends RecyclerView.ViewHolder{
+    public static class EAViewHOlder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView servicio,profesionista,fecha,hora,total;
+        Button cancel;
+
         ServiceClickListener serviceClickListener;
 
         public EAViewHOlder(View itemView) {
@@ -50,11 +60,17 @@ public class AdaptadorElementoAgenda extends RecyclerView.Adapter<AdaptadorEleme
             profesionista = itemView.findViewById(R.id.tvProfesionistaA);
             hora = itemView.findViewById(R.id.tvHoraA);
             total = itemView.findViewById(R.id.tvTotalA);
+            cancel = itemView.findViewById(R.id.btnCancelar);
+            cancel.setOnClickListener(this);
         }
 
         public void setServiceClickListener(ServiceClickListener sc){
             this.serviceClickListener=sc;
         }
 
+        @Override
+        public void onClick(View view) {
+            this.serviceClickListener.onServiceClick(view,getLayoutPosition());
+        }
     }
 }

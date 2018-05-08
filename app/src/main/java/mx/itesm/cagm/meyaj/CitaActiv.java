@@ -32,8 +32,8 @@ import java.util.Calendar;
 
 public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     ArrayList<Servicio> servicios;
-    int total, horaICita, minICita;
-    String llaveP, fechaCita;
+    int total;
+    String llaveP, fechaCita,horaICita, minICita;;
     AdaptadorResumenServicio adaptadorServicio;
     TextView horaFinal;
     DatabaseReference ref,refUsuario,refU;
@@ -178,23 +178,23 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
     @Override
     public void onTimeSet(TimePicker timePicker, int h, int m) {
         TextView hInit = findViewById(R.id.tvHoraInicio);
-        minICita = m;
-        horaICita = h;
         //Pendiente finalizacion de cita
         TextView hFinit = findViewById(R.id.tvHoraFin);
+        if(h<10){
+            horaICita = "0"+h;
+        }else {
+            horaICita = String.valueOf(h);
+        }
         if(m<10){
-            if(h>12){
-                hInit.setText(h+" : 0"+ m+" PM");
-            }else{
-                hInit.setText(h+" : 0"+ m+" AM");
-            }
+            minICita = "0"+m;
         }else{
-            if(h>12){
-                hInit.setText(h+" : "+ m+" PM");
-            }else{
-                hInit.setText(h+" : "+ m+" AM");
-            }
+            minICita = ""+m;
+        }
 
+        if(h>12){
+            hInit.setText(horaICita+":"+minICita+" PM");
+        }else{
+            hInit.setText(horaICita+":"+minICita+" AM");
         }
 
     }

@@ -78,8 +78,8 @@ public class AgendaFrag extends Fragment {
                         }else{
                             if(snapshot.child("Cliente").getValue().equals(user.getUid())){
                                 lista[0]= (String) snapshot.child("Fecha").getValue();
-                                lista[1]= String.valueOf(snapshot.child("Hora").getValue(Integer.class));
-                                lista[2]= String.valueOf(snapshot.child("Minutos").getValue(Integer.class));
+                                lista[1]= String.valueOf(snapshot.child("Hora").getValue());
+                                lista[2]= String.valueOf(snapshot.child("Minutos").getValue());
                                 lista[3]= (String) snapshot.child("Profesionista").getValue();
                                 serviciosAgenda.add((List) snapshot.child("Servicios").getValue());
                                 datosAgenda.add(lista);

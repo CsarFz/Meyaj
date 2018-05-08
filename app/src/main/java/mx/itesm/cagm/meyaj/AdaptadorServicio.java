@@ -14,18 +14,15 @@ public class AdaptadorServicio extends RecyclerView.Adapter<AdaptadorServicio.DS
     ArrayList<Servicio> servicios;
     ArrayList<Servicio> checkedServices= new ArrayList<>();
     ArrayList<Integer> totalus= new ArrayList<>();
-    int total = 0;
 
     public AdaptadorServicio(ArrayList<Servicio> servicios) {
         this.servicios = servicios;
-
     }
 
     @Override
     public DSViewHOlder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.elemento_detalle_servicio,parent,false);
         AdaptadorServicio.DSViewHOlder holder = new AdaptadorServicio.DSViewHOlder(v);
-
         return holder;
     }
 
@@ -55,19 +52,12 @@ public class AdaptadorServicio extends RecyclerView.Adapter<AdaptadorServicio.DS
         return servicios.size();
     }
 
-
-    public int getTotal(){ return total; }
-
     public ArrayList<Servicio> getServicios() {
         return servicios;
     }
 
     public ArrayList<Servicio> getCheckedServices() {
         return checkedServices;
-    }
-
-    public ArrayList<Integer> getTotalus() {
-        return totalus;
     }
 
     public static class DSViewHOlder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -83,7 +73,6 @@ public class AdaptadorServicio extends RecyclerView.Adapter<AdaptadorServicio.DS
             descripcion = itemView.findViewById(R.id.tvDescripcion);
             duracion = itemView.findViewById(R.id.tvDuracion);
             cb = itemView.findViewById(R.id.checkBoxServicio);
-
             cb.setOnClickListener(this);
 
         }
