@@ -129,6 +129,12 @@ public class RegistroActiv extends AppCompatActivity {
 
                         }else{
                             progressDialog.cancel();
+                            try {
+                                throw task.getException();
+                            } catch (Exception e) {
+                                Toast.makeText(RegistroActiv.this,"Ya existe una cuenta asociada con esta dirección de correo", Toast.LENGTH_SHORT).show();
+
+                            }
                             Toast.makeText(RegistroActiv.this,"No se pudo registrar, intente de nuevo.", Toast.LENGTH_SHORT).show();
                         }
                     }
