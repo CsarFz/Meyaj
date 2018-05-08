@@ -80,13 +80,7 @@ public class ResultadosActiv extends AppCompatActivity {
                 int contador = 0;
                 for (DataSnapshot snapshot:
                         dataSnapshot.getChildren()) {
-                    /*
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    */
+
                     String prof = snapshot.child(FBReferences.PROFESION_REF).getValue(String.class);
                     if(!serviceType.equals("")){
                         if(prof.equals(serviceType)) {
@@ -110,12 +104,9 @@ public class ResultadosActiv extends AppCompatActivity {
                     }
                 }
                 if(contador==0){
-                    //Toast.makeText(getApplicationContext(),,Toast.LENGTH_SHORT).show();
-
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-
                             if (!isFinishing()){
                                 new AlertDialog.Builder(ResultadosActiv.this)
                                         .setTitle("Lo sentimos.")
@@ -140,7 +131,6 @@ public class ResultadosActiv extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("No es posible");
-                System.out.println("--------------------------------------------");
             }
 
 

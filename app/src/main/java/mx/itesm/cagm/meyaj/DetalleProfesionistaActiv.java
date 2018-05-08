@@ -37,9 +37,6 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
     NotificationCompat.Builder notification;
     private static final int uniqueID = 45612;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

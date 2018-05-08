@@ -36,7 +36,7 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
     String llaveP, fechaCita;
     AdaptadorResumenServicio adaptadorServicio;
     TextView horaFinal;
-    DatabaseReference ref,refUsuario;
+    DatabaseReference ref,refUsuario,refU;
     FirebaseUser user;
 
     NotificationCompat.Builder notification;
@@ -94,12 +94,12 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
 
             }
         });
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         ref = database.getReference(FBReferences.SERVICIOS_ACTIVOS_REF);
-
-        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-        user = firebaseAuth.getCurrentUser();
+        refU = database.getReference(user.getUid());
 
         if(user==null){
             btnSolicitar.setEnabled(false);
@@ -118,12 +118,17 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
                 }else{
                     Intent intent = new Intent(CitaActiv.this, MenuPrincipalActiv.class);
                     //Llave del servicio y datos
-                    String id = ref.push().getKey();
+                    String id = (String) ref.push().getKey();
+
                     ref.child(id).child("Hora").setValue(horaICita);
                     ref.child(id).child("Minutos").setValue(minICita);
                     ref.child(id).child("Fecha").setValue(fechaCita);
                     ref.child(id).child("Profesionista").setValue(llaveP);
                     ref.child(id).child("Cliente").setValue(user.getUid());
+
+                    for(int i=0;i<servicios.size();i++){
+                        ref.child(id).child("Servicio").push().setValue(servicios.get(i));
+                    }
 
                     //Guarda llave del servicio dentro de usuario
                     refUsuario = database.getReference(user.getUid());

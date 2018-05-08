@@ -10,9 +10,9 @@ import java.util.List;
 
 public class AdaptadorElementoAgenda extends RecyclerView.Adapter<AdaptadorElementoAgenda.EAViewHOlder> {
 
-    ArrayList<List<String>> datosAgenda;
+    ArrayList<String[]> datosAgenda;
 
-    public AdaptadorElementoAgenda(ArrayList<List<String>> datosAgenda) {
+    public AdaptadorElementoAgenda(ArrayList<String[]> datosAgenda) {
         this.datosAgenda = datosAgenda;
 
     }
@@ -27,11 +27,11 @@ public class AdaptadorElementoAgenda extends RecyclerView.Adapter<AdaptadorEleme
 
     @Override
     public void onBindViewHolder(AdaptadorElementoAgenda.EAViewHOlder holder, int position) {
-        holder.servicio.setText(datosAgenda.get(position).get(0));
-        holder.profesionista.setText(datosAgenda.get(position).get(1));
-        holder.fecha.setText(datosAgenda.get(position).get(2));
-        holder.hora.setText(datosAgenda.get(position).get(3));
-        holder.hora.setText(datosAgenda.get(position).get(4));
+        holder.servicio.setText(datosAgenda.get(position)[0]);
+        holder.profesionista.setText(datosAgenda.get(position)[3]);
+        holder.fecha.setText(datosAgenda.get(position)[0]);
+        holder.hora.setText(datosAgenda.get(position)[1]+datosAgenda.get(position)[2]);
+
     }
 
     @Override
@@ -46,8 +46,8 @@ public class AdaptadorElementoAgenda extends RecyclerView.Adapter<AdaptadorEleme
         public EAViewHOlder(View itemView) {
             super(itemView);
             servicio = itemView.findViewById(R.id.tvServicioA);
-            profesionista = itemView.findViewById(R.id.tvProfesionistaA);
-            fecha = itemView.findViewById(R.id.tvFechaA);
+            profesionista = itemView.findViewById(R.id.tvFechaA);
+            fecha = itemView.findViewById(R.id.tvProfesionistaA);
             hora = itemView.findViewById(R.id.tvHoraA);
             total = itemView.findViewById(R.id.tvTotalA);
         }
