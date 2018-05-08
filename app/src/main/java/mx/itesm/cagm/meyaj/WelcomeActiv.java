@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class WelcomeActiv extends AppCompatActivity {
 
     private ViewPager slideViewPager;
@@ -23,6 +26,11 @@ public class WelcomeActiv extends AppCompatActivity {
     private Button backBtn;
     private Button skipBtn;
     private int currentPage;
+
+
+    FirebaseUser user;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +50,19 @@ public class WelcomeActiv extends AppCompatActivity {
         addDotsIndicator(0);
 
         slideViewPager.addOnPageChangeListener(viewListener);
+
+
+        //Checar que no exista sesion iniciada, si si entonces se salta esta pantalla
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
+
+        if(user!=null){
+            Intent intMenuPrincipal = new Intent(WelcomeActiv.this, MenuPrincipalActiv.class);
+            startActivity(intMenuPrincipal);
+        }
+
+
+
 
         // OnClickListener
         nextBtn.setOnClickListener(new View.OnClickListener() {
