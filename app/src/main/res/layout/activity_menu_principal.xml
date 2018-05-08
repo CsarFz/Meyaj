@@ -5,6 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient"
     android:orientation="vertical"
     tools:context="mx.itesm.cagm.meyaj.MenuPrincipalActiv">
 
@@ -15,7 +16,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@drawable/gradient">
 
     </FrameLayout>
 
