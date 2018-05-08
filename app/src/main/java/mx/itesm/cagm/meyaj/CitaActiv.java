@@ -137,7 +137,7 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
 
 
                     //Build the notification
-                    notification.setSmallIcon(R.drawable.ic_notifications_black_24dp);
+                    notification.setSmallIcon(R.drawable.ic_meyaj);
                     notification.setTicker("This is the ticker");
                     notification.setWhen(System.currentTimeMillis());
                     notification.setContentTitle("Cita pendiente");
