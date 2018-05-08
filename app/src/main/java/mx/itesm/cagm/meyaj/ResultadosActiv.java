@@ -63,6 +63,7 @@ public class ResultadosActiv extends AppCompatActivity {
         adaptador.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(ResultadosActiv.this, DetalleProfesionistaActiv.class);
                 intent.putExtra("NAME", profesionistas.get(rv.getChildAdapterPosition(view))[0]);
                 intent.putExtra("ADDRESS", profesionistas.get(rv.getChildAdapterPosition(view))[5]);
