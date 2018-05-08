@@ -84,7 +84,7 @@
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/colorGrayBlack"
         android:hint="Número de teléfono"
-        android:inputType="number"
+        android:inputType="phone"
         android:textColor="@color/colorGrayBlack"
         android:textColorHighlight="@color/colorPrimary"
         android:textCursorDrawable="@null"
