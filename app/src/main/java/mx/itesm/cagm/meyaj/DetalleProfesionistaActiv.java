@@ -52,13 +52,9 @@ public class DetalleProfesionistaActiv extends AppCompatActivity {
         llave = (String) bundle.get("KEY");
         servicios = new ArrayList<>();
 
-
-
         //Generar la notification
         notification = new NotificationCompat.Builder(getApplicationContext());
         notification.setAutoCancel(false);
-
-
 
         tvN = findViewById(R.id.tvTelefono);
         tvD = findViewById(R.id.tvDireccion);

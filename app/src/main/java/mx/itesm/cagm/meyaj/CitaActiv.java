@@ -88,29 +88,39 @@ public class CitaActiv extends AppCompatActivity implements DatePickerDialog.OnD
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
 
+        if(user==null){
+            btnSolicitar.setText("Inicia sesión o regístrate para solicitar servicio");
+        }
+
 
         btnSolicitar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(user==null){
+                    Intent intent = new Intent(CitaActiv.this, MenuPrincipalActiv.class);
+                    intent.putExtra("Pantalla","Agenda");
+                    startActivity(intent);
+                    finishAffinity();
+                }else{
+                    Intent intent = new Intent(CitaActiv.this, MenuPrincipalActiv.class);
+                    //Llave del servicio y datos
+                    String id = ref.push().getKey();
+                    ref.child(id).child("Hora").setValue(horaICita);
+                    ref.child(id).child("Minutos").setValue(minICita);
+                    ref.child(id).child("Fecha").setValue(fechaCita);
+                    ref.child(id).child("Profesionista").setValue(llaveP);
+                    ref.child(id).child("Cliente").setValue(user.getUid());
 
-                Intent intent = new Intent(CitaActiv.this, MenuPrincipalActiv.class);
-                //Llave del servicio y datos
-                String id = ref.push().getKey();
-                ref.child(id).child("Hora").setValue(horaICita);
-                ref.child(id).child("Minutos").setValue(minICita);
-                ref.child(id).child("Fecha").setValue(fechaCita);
-                ref.child(id).child("Profesionista").setValue(llaveP);
-                ref.child(id).child("Cliente").setValue(user.getUid());
+                    //Guarda llave del servicio dentro de usuario
+                    refUsuario = database.getReference(user.getUid());
+                    String idServicio = refUsuario.push().getKey();
+                    refUsuario.child("Servicios").child(idServicio).setValue(id);
 
-                //Guarda llave del servicio dentro de usuario
-                refUsuario = database.getReference(user.getUid());
-                String idServicio = refUsuario.push().getKey();
-                refUsuario.child("Servicios").child(idServicio).setValue(id);
+                    startActivity(intent);
+                    finishAffinity();
+                    Toast.makeText(getApplicationContext(),"Cita realizada con éxito, puede revisarla en su agenda para consultar detalles",Toast.LENGTH_LONG).show();
 
-                startActivity(intent);
-                finishAffinity();
-                Toast.makeText(getApplicationContext(),"Cita realizada con éxito, puede revisarla en su agenda para consultar detalles",Toast.LENGTH_LONG).show();
-
+                }
             }
         });
 

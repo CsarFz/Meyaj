@@ -2,6 +2,7 @@ package mx.itesm.cagm.meyaj;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -21,6 +22,8 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.ArrayList;
+
 public class MenuPrincipalActiv extends AppCompatActivity
 {
 
@@ -34,6 +37,7 @@ public class MenuPrincipalActiv extends AppCompatActivity
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
             Fragment fragment = null;
+
 
             switch (item.getItemId()) {
                 case R.id.navBuscar:
@@ -61,6 +65,11 @@ public class MenuPrincipalActiv extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        if(bundle!=null){
+            String pantalla = (String) bundle.get("Pantalla");
+        }
 
         if(!isConnected(MenuPrincipalActiv.this)){
             buildDialog(MenuPrincipalActiv.this).show();
